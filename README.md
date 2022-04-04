@@ -1,1 +1,1 @@
-Just started this project, nothing here yet.
+In this project I'll make a basketball league and simulate all their games. 
