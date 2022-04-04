@@ -1,22 +1,32 @@
-let teamdata = [
+let greenfield = [
 	{
-	team: "Greenfield Warriors",
+	team: "Greenfield",
   wins: 0,
   losses: 0,
   players: [
   	{
-  	name: "Isaac"
-  	}
-  ]
-	},
-  {
-  team: "Team 2",
-  wins: 0,
-  losses: 0
-  },
+  	  player1: [
+        {
+          name: "Isaac",
+        }],
+      player2: [
+        {
+          name: "Soren",
+        }],
+    }]
+	}
 ]
 
+let gameTime = 48;
 
-teamdata[0].wins += 1;
+//INCREMENT BY HALF MINUTE????
 
-console.log(teamdata[0].players[0].name)
+//master function
+function simulateGame() {
+
+}
+
+
+//greenfield[0].wins += 1;
+
+console.log(greenfield[0].players[0].name)
