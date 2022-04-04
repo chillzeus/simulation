@@ -17,16 +17,18 @@ let greenfield = [
 	}
 ]
 
-let gameTime = 48;
+let gameTimeRAW = 192;
+let score = gameTimeRAW / 4;
 
-//INCREMENT BY HALF MINUTE????
-
-//master function
-function simulateGame() {
+//this is where one play will be
+//algorithm needed, defense will be man to man lol, zone would be hard to code
+function play() {
 
 }
 
-
-//greenfield[0].wins += 1;
+//increment by quarter minute?
+for (let i = 192; i > 0; i += -1) {
+  play()
+}
 
 console.log(greenfield[0].players[0].name)
