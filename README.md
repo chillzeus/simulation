@@ -1,1 +1,1 @@
-In this project I'll make a basketball league and simulate all their games. 
+I will simulate baseball games, and hopefully a season at some point
