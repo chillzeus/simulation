@@ -25,11 +25,11 @@ let pitcher = [
 ]
 
 //will need a hit is true variable
-let probability = 12;
-let homeRunProbability = null;
+let probability = 18;
+let hitType = 25;
 
 let randomNumber = null;
-let homeRun = null;
+let randomHit = null;
 let hit = false;
 
 function atBat() {
@@ -59,22 +59,35 @@ function atBat() {
     } 
     if (randomNumber == 4 || randomNumber == 5 || randomNumber == 6) {
       console.log("ball")
-    } 
-    //home run calculations
-    if (randomNumber == 7) {
-      if (player1[0].strength >= 1.5) {
-        homeRun = 2;
-      } 
-      else {
-        homeRun = 4;
-      }
-      homeRun = Math.trunc(Math.random() * (homeRunProbability - 0) + 0); 
-      if (homeRun == 1) {
-        console.log("home run")
-      }
     }
-    if (randomNumber > 7) {
+    if (randomNumber > 6) {
       console.log("strike")
+    }
+
+    if (hit == true) {
+      if (player1[0].strength > 1 && player1[0].strenght < 1.5) {
+        hitType += -3;
+      } if (player1[0].strength > 1.5) {
+        hitType += -4;
+      }
+
+      randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
+
+      if (randomHit == 0 || randomHit == 1 || randomHit == 2 || randomHit == 3 || randomHit == 4) {
+        console.log("single")
+      } if (randomHit == 5 || randomHit == 6 || randomHit == 7 || randomHit == 8) {
+        console.log("fly out")
+      } if (randomHit == 9) {
+        console.log("home run")
+      } if (randomHit == 10 || randomHit == 11) {
+        console.log("double")
+      } if (randomHit == 12) {
+        console.log("triple")
+      } if (randomHit == 13) {
+        console.log("home run")
+      } if (randomHit > 13) {
+        console.log("ground out")
+      }
     }
   }
 }
