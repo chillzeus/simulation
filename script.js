@@ -7,10 +7,17 @@ let firstbase = false;
 let secondbase = false;
 let thirdbase = false;
 
+let probability = 25;
+let hitType = 100;
+
+let randomNumber = null;
+let randomHit = null;
+let inPlay = false;
+
 //player[i].etc USE FOR LOOP!
 
-let player1 = [
-	{        
+const player1 = [
+	{
     name: "Isaac Fiedler",
     handed: "right",
     battingrating: 1.2,
@@ -19,7 +26,7 @@ let player1 = [
 	}
 ]
 
-let pitcher = [
+const pitcher = [
   {
     name: "Bizarro Isaac",
     handed: "left",
@@ -29,14 +36,6 @@ let pitcher = [
     endurance: 55
   }
 ]
-
-//will need a hit is true variable
-let probability = 18;
-let hitType = 25;
-
-let randomNumber = null;
-let randomHit = null;
-let hit = false;
 
 function atBat() {
   if (balls < 4 && strikes < 3) {
@@ -60,20 +59,20 @@ function atBat() {
     // if strikes and stuff
     if (strikes < 3 || balls < 4) { 
       randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
-      if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
+      if (randomNumber <= 6) {
         console.log("hit")
-        hit = true;
+        inPlay = true;
       } 
-      if (randomNumber == 4 || randomNumber == 5 || randomNumber == 6) {
+      if (randomNumber >= 7 && randomNumber <= 17) {
         console.log("ball")
         balls += 1;
       }
-      if (randomNumber > 6) {
+      if (randomNumber >= 18) {
         console.log("strike")
         strikes += 1;
       }
 
-      if (hit == true) {
+      if (inPlay) {
         if (player1[0].strength > 1 && player1[0].strenght < 1.5) {
           hitType += -3;
         } if (player1[0].strength > 1.5) {
@@ -82,20 +81,23 @@ function atBat() {
 
         randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
 
-        if (randomHit == 0 || randomHit == 1 || randomHit == 2 || randomHit == 3 || randomHit == 4) {
-          console.log("single")
-        } if (randomHit == 5 || randomHit == 6 || randomHit == 7 || randomHit == 8) {
-          console.log("fly out")
-        } if (randomHit == 9) {
-          console.log("home run")
-        } if (randomHit == 10 || randomHit == 11) {
-          console.log("double")
-        } if (randomHit == 12) {
-          console.log("triple")
-        } if (randomHit == 13) {
-          console.log("home run")
-        } if (randomHit > 13) {
-          console.log("ground out")
+        if (randomHit <= 30) {
+          randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
+          if (randomHit <= 60) {
+              console.log("single")
+            } if (randomHit > 60 && randomHit <= 80) {
+              console.log("double")
+            } if (randomHit == 9) {
+              console.log("home run")
+            } if (randomHit == 10 || randomHit == 11) {
+              console.log("double")
+            } if (randomHit == 12) {
+              console.log("triple")
+            } if (randomHit == 13) {
+              console.log("home run")
+            } if (randomHit > 13) {
+              console.log("ground out")
+            }
         }
       }
     }
