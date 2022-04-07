@@ -1,105 +1,126 @@
 // 0.0.2 Pre Alpha
 
-let balls = 0;
-let strikes = 0;
-
-let firstbase = false;
-let secondbase = false;
-let thirdbase = false;
+let firstBase = false;
+let secondBase = false;
+let thirdBase = false;
 
 //player[i].etc USE FOR LOOP!
 
-let player1 = [
-	{        
+const batter = {
     name: "Isaac Fiedler",
     handed: "right",
-    battingrating: 1.2,
+    battingRating: 1.2,
     strength: 1.5,
     hits: 0
-	}
-]
+}
 
-let pitcher = [
-  {
+const pitcher = {
     name: "Bizarro Isaac",
     handed: "left",
-    pitchingrating: 1.4,
-    pitchspeed: 1.7,
+    pitchingRating: 1.4,
+    pitchSpeed: 1.7,
     exhaustion: 1,
     endurance: 55
-  }
-]
-
-//will need a hit is true variable
-let probability = 18;
-let hitType = 25;
-
-let randomNumber = null;
-let randomHit = null;
-let hit = false;
+}
 
 function atBat() {
-  if (balls < 4 && strikes < 3) {
-    //enclose this all in a for loop or something
+    let events = 0;
+    let balls = 0;
+    let strikes = 0;
+
+    let atBatDone = false;
+    let inPlay = false;
+
+    let probability = 22;
+    let hitType = 35;
 
     //sees who is the "better player"
-    if(pitcher[0].pitchingrating > player1[0].battingrating) {
-      probability += 5;
+    if (pitcher.pitchingRating > batter.battingRating) {
+        probability += 5;
     }
-    if(pitcher[0].pitchingrating < player1[0].battingrating) {
-      probability += -2;
+    if (pitcher.pitchingRating < batter.battingRating) {
+        probability += -2;
     }
-    if(pitcher[0].handed !== player1[0].handed) {
-      probability += -1;
-    } if (pitcher[0].exhaustion == 2) {
-      probability += -1;
-    } if (pitcher[0].exhaustion == 3) {
-      probability += -2;
+    if (pitcher.handed !== batter.handed) {
+        probability += -1;
+    }
+    if (pitcher.exhaustion === 2) {
+        probability += -1;
+    }
+    if (pitcher.exhaustion === 3) {
+        probability += -2;
     }
 
-    // if strikes and stuff
-    if (strikes < 3 || balls < 4) { 
-      randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
-      if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
-        console.log("hit")
-        hit = true;
-      } 
-      if (randomNumber == 4 || randomNumber == 5 || randomNumber == 6) {
-        console.log("ball")
-        balls += 1;
-      }
-      if (randomNumber > 6) {
-        console.log("strike")
-        strikes += 1;
-      }
+    //enclose this all in a for loop or something
+    while (!atBatDone) {
+        events++;
+        const randomNumber = Math.trunc(Math.random() * probability);
+        if (randomNumber <= 6) {
+            console.log("hit")
+            inPlay = true;
+        }
+        if (randomNumber >= 7 && randomNumber <= 17) {
+            console.log("ball")
+            balls += 1;
+        }
+        if (randomNumber >= 18) {
+            console.log("strike")
+            strikes += 1;
+        }
+        // if strikes and stuff
+        if (strikes < 3 && balls < 4 && inPlay) {
+            atBatDone = true;
 
-      if (hit == true) {
-        if (player1[0].strength > 1 && player1[0].strenght < 1.5) {
-          hitType += -3;
-        } if (player1[0].strength > 1.5) {
-          hitType += -4;
+            if (batter.strength > 1 && batter.strength < 1.5) {
+                hitType += 3;
+            }
+            if (batter.strength > 1.5) {
+                hitType += 4;
+            }
+
+            const randomHit = Math.trunc(Math.random() * hitType);
+
+            if (randomHit <= 12) {
+                console.log("ground out")
+                return "GO"
+            }
+            if (randomHit <= 22) {
+                console.log("fly out")
+                return "FO";
+            }
+            if (randomHit <= 28) {
+                console.log("single");
+                return "1B";
+            }
+            if (randomHit <= 31) {
+                console.log("double");
+                return "2B";
+            }
+            if (randomHit === 32) {
+                console.log("triple");
+                return "3B";
+            }
+            if (randomHit >= 33) {
+                console.log("home run");
+                return "HR";
+            }
         }
 
-        randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
-
-        if (randomHit == 0 || randomHit == 1 || randomHit == 2 || randomHit == 3 || randomHit == 4) {
-          console.log("single")
-        } if (randomHit == 5 || randomHit == 6 || randomHit == 7 || randomHit == 8) {
-          console.log("fly out")
-        } if (randomHit == 9) {
-          console.log("home run")
-        } if (randomHit == 10 || randomHit == 11) {
-          console.log("double")
-        } if (randomHit == 12) {
-          console.log("triple")
-        } if (randomHit == 13) {
-          console.log("home run")
-        } if (randomHit > 13) {
-          console.log("ground out")
+        if (events > 15) {
+            console.log("Something went wrong...");
+            return "ERR"
         }
-      }
+
+        if (balls === 4) {
+            console.log("walk");
+            return "BB";
+        }
+
+        if (strikes === 3) {
+            console.log("strikeout");
+            return "K";
+        }
     }
-  }
 }
 
 atBat()
