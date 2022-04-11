@@ -1,4 +1,4 @@
-// 0.0.4 Pre Alpha
+// 0.0.5 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -78,18 +78,20 @@ function atBat() {
 
       randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
 
-      if (randomHit <= 30) {
-        secondary = Math.trunc(Math.random() * hitType - 0) + 0;
+      if (randomHit <= 40) {
+        secondary = Math.trunc(Math.random() * 100 - 0) + 0;
         if (secondary <= 60) {
             console.log("single")
-          } if (secondary > 60 && secondary <= 85) {
+          } if (secondary > 60 && secondary <= 90) {
             console.log("double")
-          } if (secondary > 85 && secondary <= 95) {
+          } if (secondary > 90 && secondary <= 95) {
             console.log("home run")
           } if (secondary > 95 && secondary <= 100) {
             console.log("triple")
           }
-      if (randomHit > 30) {
+        }
+      }
+      if (randomHit > 40) {
         secondary = Math.trunc(Math.random() * hitType - 0) + 0;
         if (secondary <= 50) {
           console.log("ground out")
@@ -97,9 +99,7 @@ function atBat() {
           console.log("fly out")
         }
       }
-      }
     }
-  }
 }
 
 atBat()
