@@ -1,4 +1,4 @@
-// 0.0.7 Pre Alpha
+// 0.0.8 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -15,8 +15,8 @@ let randomHit = null;
 let secondary = null;
 let inPlay = false;
 
-let K = 0;
-let BB = 0;
+let strikeout = 0;
+let walk = 0;
 let single = 0;
 let double = 0;
 let triple = 0;
@@ -47,8 +47,8 @@ const pitcher = [
 ]
 
 function atBat() {
-  console.log("no")
   //sees who is the "better player"
+  probability = 25;
   if(pitcher[0].pitchingrating > player1[0].battingrating) {
     probability += 5;
   }
@@ -70,25 +70,25 @@ function atBat() {
       inPlay = true;
     } 
     if (randomNumber >= 7 && randomNumber <= 17) {
-      console.log("ball")
       balls += 1;
     }
     if (randomNumber >= 18) {
-      console.log("strike")
       strikes += 1;
     }
-  }
 
-  //check if walk or strikeout 
-  if (balls == 4) {
-    balls = 0;
-    strikes = 0;
-    BB += 1;
-    atBat();
-  } if (strikes == 4) {
-    balls = 0;
-    strikes = 0;
-    K += 1;
+    //check if walk or strikeout 
+    if (balls == 4) {
+      console.log("test")
+      balls = 0;
+      strikes = 0;
+      walk += 1;
+      atBat();
+    } if (strikes == 3) {
+      console.log("test")
+      balls = 0;
+      strikes = 0;
+      strikeout += 1;
+    }
   }
 
   //the ball is hit into play
@@ -104,16 +104,12 @@ function atBat() {
     if (randomHit <= 40) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
-          console.log("single")
           single += 1;
         } if (secondary > 60 && secondary <= 90) {
-          console.log("double")
           double += 1;
         } if (secondary > 90 && secondary <= 95) {
-          console.log("home run")
           homeRun += 1;
         } if (secondary > 95 && secondary <= 100) {
-          console.log("triple")
           triple += 1;
         }
       }
@@ -121,16 +117,16 @@ function atBat() {
     if (randomHit > 40) {
       secondary = Math.trunc(Math.random() * hitType - 0) + 0;
       if (secondary <= 50) {
-        console.log("ground out")
         out += 1;
       } if (secondary > 50) {
-        console.log("fly out")
         out += 1;
       }
     }
 } 
 
-for (let i = 0; i < 600; i++) {
+for (let i = 0; i < 1000; i++) {
   atBat()
 }
+
+console.log(single, double, triple, homeRun)
 //for testing
