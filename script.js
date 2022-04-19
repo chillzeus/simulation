@@ -1,4 +1,4 @@
-// 0.0.8 Pre Alpha
+// 0.0.7.2 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -22,6 +22,7 @@ let double = 0;
 let triple = 0;
 let homeRun = 0;
 let out = 0;
+let atBats = 0;
 
 //player[i].etc USE FOR LOOP!
 
@@ -47,6 +48,8 @@ const pitcher = [
 ]
 
 function atBat() {
+  atBats += 1;
+  inPlay = false;
   //sees who is the "better player"
   probability = 25;
   if(pitcher[0].pitchingrating > player1[0].battingrating) {
@@ -78,13 +81,11 @@ function atBat() {
 
     //check if walk or strikeout 
     if (balls == 4) {
-      console.log("test")
       balls = 0;
       strikes = 0;
       walk += 1;
       atBat();
     } if (strikes == 3) {
-      console.log("test")
       balls = 0;
       strikes = 0;
       strikeout += 1;
@@ -124,9 +125,10 @@ function atBat() {
     }
 } 
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 300; i++) {
   atBat()
 }
 
-console.log(single, double, triple, homeRun)
+console.log(single, double, triple, homeRun, strikeout, walk)
+console.log(atBats)
 //for testing
