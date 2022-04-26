@@ -25,15 +25,29 @@ let out = 0;
 let atBats = 0;
 
 //player[i].etc USE FOR LOOP!
+let i = 0;
 
-const player1 = [
-	{
-    name: "Isaac Fiedler",
-    handed: "right",
-    battingrating: 1.2,
-    strength: 1.5,
-    hits: 0
-	}
+const team1 = [
+  {
+    "players": [
+    {
+        "name": "Soren Fiedler",
+        "handed": "right",
+        "battingrating": 1.20,
+        "strength": 1.5,
+        "hits": 0
+    }
+    ],
+    "player2": [
+      {
+        "name": "Soren Fiedler",
+        "handed": "right",
+        "battingrating": 1.1,
+        "strength": 1.3,
+        "hits": 0
+      }
+    ],
+  }
 ]
 
 const pitcher = [
