@@ -1,4 +1,4 @@
-// 0.0.7.3 Pre Alpha
+// 0.0.8.1 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -22,6 +22,7 @@ let double = 0;
 let triple = 0;
 let homeRun = 0;
 let out = 0;
+let nextplay = false;
 let atBats = 0;
 
 //player[i].etc USE FOR LOOP!
@@ -33,22 +34,22 @@ const team1 = [
     {
         "name": "Soren Fiedler",
         "handed": "right",
-        "battingrating": 1.20,
+        "battingrating": 1.2,
         "strength": 1.5,
+        "hits": 0
+    },
+    {
+        "name": "Isaac Fiedler",
+        "handed": "right",
+        "battingrating": 1.3,
+        "strength": 1.6,
         "hits": 0
     }
     ],
-    "player2": [
-      {
-        "name": "Soren Fiedler",
-        "handed": "right",
-        "battingrating": 1.1,
-        "strength": 1.3,
-        "hits": 0
-      }
-    ],
   }
 ]
+
+console.log(team1[0].players[i])
 
 const pitcher = [
   {
@@ -62,17 +63,27 @@ const pitcher = [
 ]
 
 function atBat() {
+  if (nextplay) {
+    if (i < 2) {
+      nextplay = false;
+      i += 1;
+    }
+    if (i == 2) {
+      nextplay = false;
+      i += 1;
+    }
+  }
   atBats += 1;
   inPlay = false;
   //sees who is the "better player"
   probability = 20;
-  if(pitcher[0].pitchingrating > player1[0].battingrating) {
+  if(pitcher[0].pitchingrating > team1[0].players[i].battingrating) {
     probability += 5;
   }
-  if(pitcher[0].pitchingrating < player1[0].battingrating) {
+  if(pitcher[0].pitchingrating < team1[0].players[i].battingrating) {
     probability += -2;
   }
-  if(pitcher[0].handed !== player1[0].handed) {
+  if(pitcher[0].handed !== team1[0].players[i].handed) {
     probability += -1;
   } if (pitcher[0].exhaustion == 2) {
     probability += -1;
@@ -98,19 +109,21 @@ function atBat() {
       balls = 0;
       strikes = 0;
       walk += 1;
+      nextplay = true;
       atBat();
     } if (strikes == 3) {
       balls = 0;
       strikes = 0;
       strikeout += 1;
+      nextplay = true;
     }
   }
 
   //the ball is hit into play
   if (inPlay) {
-    if (player1[0].strength > 1 && player1[0].strength < 1.5) {
+    if (team1[0].players[i].strength > 1 && team1[0].players[i].strength < 1.5) {
       hitType += -4;
-    } if (player1[0].strength > 1.5) {
+    } if (team1[0].players[0].strength > 1.5) {
       hitType += -6;
     }
 
@@ -120,12 +133,16 @@ function atBat() {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
           single += 1;
+          nexplay = true;
         } if (secondary > 60 && secondary <= 90) {
           double += 1;
+          nextplay = true;
         } if (secondary > 90 && secondary <= 95) {
           homeRun += 1;
+          nexplay = true;
         } if (secondary > 95 && secondary <= 100) {
           triple += 1;
+          nextplay = true;
         }
       }
     }
@@ -133,8 +150,10 @@ function atBat() {
       secondary = Math.trunc(Math.random() * hitType - 0) + 0;
       if (secondary <= 50) {
         out += 1;
+        nexplay = true;
       } if (secondary > 50) {
         out += 1;
+        nextplay = true;
       }
     }
 } 
