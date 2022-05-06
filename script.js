@@ -1,4 +1,4 @@
-// 0.0.8.1 Pre Alpha
+// 0.0.8.2 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -35,21 +35,33 @@ const team1 = [
         "name": "Soren Fiedler",
         "handed": "right",
         "battingrating": 1.2,
-        "strength": 1.5,
+        "strength": 1.4,
         "hits": 0
     },
     {
         "name": "Isaac Fiedler",
         "handed": "right",
-        "battingrating": 1.3,
-        "strength": 1.6,
+        "battingrating": 1.4,
+        "strength": 1.5,
         "hits": 0
+    },
+    {
+        "name": "Zeus the Frog",
+        "handed": "left",
+        "battingrating": 1.5,
+        "strength": 0.6,
+        "hits": 0
+    },
+    {
+      "name": "Michael Fazio",
+      "handed": "right",
+      "battingrating": 1.7,
+      "strength": 1.7,
+      "hits": 0
     }
     ],
   }
 ]
-
-console.log(team1[0].players[i])
 
 const pitcher = [
   {
@@ -58,19 +70,19 @@ const pitcher = [
     pitchingrating: 1.4,
     pitchspeed: 1.7,
     exhaustion: 1,
-    endurance: 55
+    pitchspeed: 3
   }
 ]
 
 function atBat() {
   if (nextplay) {
-    if (i < 2) {
+    if (i < 3) {
       nextplay = false;
       i += 1;
     }
-    if (i == 2) {
+    if (i == 3) {
       nextplay = false;
-      i += 1;
+      i = 0;
     }
   }
   atBats += 1;
@@ -83,12 +95,26 @@ function atBat() {
   if(pitcher[0].pitchingrating < team1[0].players[i].battingrating) {
     probability += -2;
   }
+
   if(pitcher[0].handed !== team1[0].players[i].handed) {
     probability += -1;
   } if (pitcher[0].exhaustion == 2) {
     probability += -1;
   } if (pitcher[0].exhaustion == 3) {
     probability += -2;
+  }
+
+  if (pitcher[0].pitchspeed == 1) {
+    probability += -2;
+  }
+  if (pitcher[0].pitchspeed == 2) {
+    probability += -1;
+  }
+  if (pitcher[0].pitchspeed == 3) {
+    probability += 1;
+  }
+  if (pitcher[0].pitchspeed == 4) {
+    probability += 2;
   }
 
   // if strikes and stuff
