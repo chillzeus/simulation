@@ -1,4 +1,4 @@
-// 0.0.8.2 Pre Alpha
+// 0.0.8.3 Pre Alpha
 
 let balls = 0;
 let strikes = 0;
@@ -60,6 +60,29 @@ const team1 = [
       "hits": 0
     }
     ],
+    "pitchers": [ 
+    {
+      "name": "Don't have one",
+      "handed": "right",
+      "pitchingrating": 1.6,
+      "exhaustion": 1,
+      "pitchspeed": 2
+    },
+    {
+      "name": "Hmmmm",
+      "handed": "left",
+      "pitchingrating": 1.4,
+      "exhaustion": 1,
+      "pitchspeed": 4
+    },
+    {
+      "name": "jeffery",
+      "handed": "dual",
+      "pitchingrating": 1.2,
+      "exhaustion": 1,
+      "pitchspeed": 2
+    }
+    ],
   }
 ]
 
@@ -68,7 +91,6 @@ const pitcher = [
     name: "Bizarro Isaac",
     handed: "left",
     pitchingrating: 1.4,
-    pitchspeed: 1.7,
     exhaustion: 1,
     pitchspeed: 3
   }
@@ -115,6 +137,13 @@ function atBat() {
   }
   if (pitcher[0].pitchspeed == 4) {
     probability += 2;
+  }
+
+  if (pitcher[0].handed == "dual") {
+    probability += 5;
+  }
+  if (team1[0].players[i].handed == "dual") {
+    probability += -2;
   }
 
   // if strikes and stuff
