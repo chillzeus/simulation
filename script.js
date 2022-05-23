@@ -1,5 +1,4 @@
-// 0.0.8.3 Pre Alpha
-
+// 0.0.8.4 Pre Alpha
 let balls = 0;
 let strikes = 0;
 
@@ -110,12 +109,12 @@ function atBat() {
   atBats += 1;
   inPlay = false;
   //sees who is the "better player"
-  probability = 20;
+  probability = 22;
   if(pitcher[0].pitchingrating > team1[0].players[i].battingrating) {
     probability += 5;
   }
   if(pitcher[0].pitchingrating < team1[0].players[i].battingrating) {
-    probability += -2;
+    probability += -1;
   }
 
   if(pitcher[0].handed !== team1[0].players[i].handed) {
@@ -127,16 +126,13 @@ function atBat() {
   }
 
   if (pitcher[0].pitchspeed == 1) {
-    probability += -2;
-  }
-  if (pitcher[0].pitchspeed == 2) {
     probability += -1;
   }
   if (pitcher[0].pitchspeed == 3) {
-    probability += 1;
+    probability += 2;
   }
   if (pitcher[0].pitchspeed == 4) {
-    probability += 2;
+    probability += 3;
   }
 
   if (pitcher[0].handed == "dual") {
@@ -152,10 +148,10 @@ function atBat() {
     if (randomNumber <= 7) {
       inPlay = true;
     } 
-    if (randomNumber >= 8 && randomNumber <= 16) {
+    if (randomNumber >= 8 && randomNumber <= 14) {
       balls += 1;
     }
-    if (randomNumber >= 17) {
+    if (randomNumber >= 15) {
       strikes += 1;
     }
 
@@ -219,4 +215,4 @@ for (let i = 0; i < 300; i++) {
 
 console.log(single, double, triple, homeRun, strikeout, walk)
 console.log(atBats)
-//for testing n   
+//for testing n
