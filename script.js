@@ -1,4 +1,4 @@
-// 0.0.8.4 Pre Alpha
+// 0.0.9
 let balls = 0;
 let strikes = 0;
 
@@ -29,6 +29,7 @@ let i = 0;
 
 const team1 = [
   {
+  "runs": 0,
     "players": [
     {
         "name": "Soren Fiedler",
@@ -52,30 +53,30 @@ const team1 = [
         "hits": 0
     },
     {
-      "name": "Michael Fazio",
-      "handed": "right",
-      "battingrating": 1.7,
-      "strength": 1.7,
-      "hits": 0
+        "name": "Michael Fazio",
+        "handed": "right",
+        "battingrating": 1.7,
+        "strength": 1.7,
+        "hits": 0
     }
     ],
     "pitchers": [ 
     {
-      "name": "Don't have one",
+      "name": "Selwyn Samuel",
       "handed": "right",
       "pitchingrating": 1.6,
       "exhaustion": 1,
       "pitchspeed": 2
     },
     {
-      "name": "Hmmmm",
+      "name": "Preston Sinkovits",
       "handed": "left",
       "pitchingrating": 1.4,
       "exhaustion": 1,
       "pitchspeed": 4
     },
     {
-      "name": "jeffery",
+      "name": "Rosemary Fiedler",
       "handed": "dual",
       "pitchingrating": 1.2,
       "exhaustion": 1,
@@ -183,14 +184,54 @@ function atBat() {
     if (randomHit <= 40) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
-          single += 1;
-          nexplay = true;
+        team1[0].players[i].hits += 1;
+        single += 1;
+        nexplay = true;
+        //now we move up the runners
+          if (firstbase) {
+            secondbase = true;
+            firstbase = false;
+          } if (secondbase) {
+            secondbase = false;
+            thirdbase = true;
+          } if (thirdbase) {
+            thirdbase = false;
+            team1[0].runs += 1;
+          }
+        //defines this afterwards to avoid conflicts
+        firstbase = true;
+        nexplay = true;
         } if (secondary > 60 && secondary <= 90) {
           double += 1;
           nextplay = true;
+          if (firstbase) {
+            thirdbase = true;
+            firstbase = false;
+          } if (secondbase) {
+            team1[0].runs += 1;
+            secondbase = false;
+          } if (thirdbase) {
+            team1[0].runs += 1;
+            thirdbase = false;
+          }
+        secondbase = true;
+        nexplay = true;
         } if (secondary > 90 && secondary <= 95) {
           homeRun += 1;
           nexplay = true;
+          
+          // i know there is probably a better way to write this code
+          let runsAdded = 1;
+          if (firstbase) {
+            runsAdded += 1;
+          }
+          if (secondbase) {
+            runsAdded += 1;
+          }
+          if (thirdbase) {
+            runsAdded += 1;
+          }
+          team1[0].runs += runsAdded;
         } if (secondary > 95 && secondary <= 100) {
           triple += 1;
           nextplay = true;
@@ -210,9 +251,17 @@ function atBat() {
 } 
 
 for (let i = 0; i < 300; i++) {
-  atBat()
+  if (out == 3) {
+    firstbase = false;
+    secondbase = false;
+    thirdbase = false;
+    out = 0;
+  }
+  else {
+    atBat()
+  }
 }
 
 console.log(single, double, triple, homeRun, strikeout, walk)
 console.log(atBats)
-//for testing n
+//for testing everything out
