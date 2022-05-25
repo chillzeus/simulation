@@ -1,4 +1,4 @@
-// 0.0.9
+// 0.0.9.1
 let balls = 0;
 let strikes = 0;
 
@@ -168,6 +168,7 @@ function atBat() {
       strikes = 0;
       strikeout += 1;
       nextplay = true;
+      out += 1;
     }
   }
 
@@ -201,6 +202,8 @@ function atBat() {
         //defines this afterwards to avoid conflicts
         firstbase = true;
         nexplay = true;
+
+        // if it's a double
         } if (secondary > 60 && secondary <= 90) {
           double += 1;
           nextplay = true;
@@ -216,10 +219,11 @@ function atBat() {
           }
         secondbase = true;
         nexplay = true;
+
+        // if it's a homerun
         } if (secondary > 90 && secondary <= 95) {
           homeRun += 1;
           nexplay = true;
-          
           // i know there is probably a better way to write this code
           let runsAdded = 1;
           if (firstbase) {
@@ -232,6 +236,8 @@ function atBat() {
             runsAdded += 1;
           }
           team1[0].runs += runsAdded;
+
+        // in the event it's a triple
         } if (secondary > 95 && secondary <= 100) {
           triple += 1;
           nextplay = true;
@@ -251,10 +257,13 @@ function atBat() {
 } 
 
 for (let i = 0; i < 300; i++) {
-  if (out == 3) {
+  // console.log(out)
+  // still gotta figure out issue with 4 outs
+  if (out >= 3) {
     firstbase = false;
     secondbase = false;
     thirdbase = false;
+    console.log("inning's over")
     out = 0;
   }
   else {
@@ -264,4 +273,6 @@ for (let i = 0; i < 300; i++) {
 
 console.log(single, double, triple, homeRun, strikeout, walk)
 console.log(atBats)
-//for testing everything out
+
+//the amount of runs here is disturbing
+console.log(team1[0].runs)
