@@ -1,4 +1,4 @@
-// 0.0.9.1
+// 0.0.9.2
 let balls = 0;
 let strikes = 0;
 
@@ -23,6 +23,7 @@ let homeRun = 0;
 let out = 0;
 let nextplay = false;
 let atBats = 0;
+let inning = 1;
 
 //player[i].etc USE FOR LOOP!
 let i = 0;
@@ -265,9 +266,13 @@ for (let i = 0; i < 300; i++) {
     thirdbase = false;
     console.log("inning's over")
     out = 0;
+    inning += 1;
   }
-  else {
+  if (out < 3 && inning < 9) {
     atBat()
+  }
+  if (inning == 9) {
+    i = 300;
   }
 }
 
