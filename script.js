@@ -1,4 +1,4 @@
-// 0.0.9.2
+// 0.0.9.3
 let balls = 0;
 let strikes = 0;
 
@@ -7,13 +7,13 @@ let secondbase = false;
 let thirdbase = false;
 
 let probability = 20;
-let hitType = 100;
 
 let randomNumber = null;
 let randomHit = null;
 let secondary = null;
 let inPlay = false;
 
+//these variables are getting to be a lot
 let strikeout = 0;
 let walk = 0;
 let single = 0;
@@ -24,6 +24,7 @@ let out = 0;
 let nextplay = false;
 let atBats = 0;
 let inning = 1;
+let hitType = 100;
 
 //player[i].etc USE FOR LOOP!
 let i = 0;
@@ -98,6 +99,7 @@ const pitcher = [
 ]
 
 function atBat() {
+  hitType = 100;
   if (nextplay) {
     if (i < 3) {
       nextplay = false;
@@ -183,7 +185,7 @@ function atBat() {
 
     randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
 
-    if (randomHit <= 40) {
+    if (randomHit <= 50) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
         team1[0].players[i].hits += 1;
@@ -205,7 +207,7 @@ function atBat() {
         nexplay = true;
 
         // if it's a double
-        } if (secondary > 60 && secondary <= 90) {
+        } if (secondary > 75 && secondary <= 93) {
           double += 1;
           nextplay = true;
           if (firstbase) {
@@ -222,7 +224,7 @@ function atBat() {
         nexplay = true;
 
         // if it's a homerun
-        } if (secondary > 90 && secondary <= 95) {
+        } if (secondary > 93 && secondary <= 98) {
           homeRun += 1;
           nexplay = true;
           // i know there is probably a better way to write this code
@@ -239,13 +241,13 @@ function atBat() {
           team1[0].runs += runsAdded;
 
         // in the event it's a triple
-        } if (secondary > 95 && secondary <= 100) {
+        } if (secondary > 98 && secondary <= 100) {
           triple += 1;
           nextplay = true;
         }
       }
     }
-    if (randomHit > 40) {
+    if (randomHit > 50) {
       secondary = Math.trunc(Math.random() * hitType - 0) + 0;
       if (secondary <= 50) {
         out += 1;
@@ -264,7 +266,6 @@ for (let i = 0; i < 300; i++) {
     firstbase = false;
     secondbase = false;
     thirdbase = false;
-    console.log("inning's over")
     out = 0;
     inning += 1;
   }
@@ -276,8 +277,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log(single, double, triple, homeRun, strikeout, walk)
-console.log(atBats)
-
-//the amount of runs here is disturbing
-console.log(team1[0].runs)
+console.log("1B: " + single, "2B: " + double, "3B: " + triple, "HR: " + homeRun, "K: " + strikeout, "BB: " + walk)
+console.log("At bats: " + atBats)
+console.log("Runs: " + team1[0].runs)
+console.log("Hit Type: " + hitType)
