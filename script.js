@@ -1,4 +1,4 @@
-// 0.0.9.3
+// 0.0.10
 let balls = 0;
 let strikes = 0;
 
@@ -60,7 +60,29 @@ const team1 = [
         "battingrating": 1.7,
         "strength": 1.7,
         "hits": 0
+    },
+    {
+        "name": "Sara Doering-Fiedler",
+        "handed": "right",
+        "battingrating": 1.2,
+        "strength": 1.3,
+        "hits": 0
+    },
+    {
+        "name": "Adam Fiedler",
+        "handed": "right",
+        "battingrating": 1.6,
+        "strength": 1.8,
+        "hits": 0
+    },
+    {
+        "name": "Rylan Klingle",
+        "handed": "left",
+        "battingrating": 0.8,
+        "strength": 0.9,
+        "hits": 0
     }
+
     ],
     "pitchers": [ 
     {
@@ -71,7 +93,7 @@ const team1 = [
       "pitchspeed": 2
     },
     {
-      "name": "Preston Sinkovits",
+      "name": "Mr. Hust",
       "handed": "left",
       "pitchingrating": 1.4,
       "exhaustion": 1,
@@ -83,8 +105,40 @@ const team1 = [
       "pitchingrating": 1.2,
       "exhaustion": 1,
       "pitchspeed": 2
+    },
+    {
+      
     }
     ],
+  }
+]
+
+const team2 = [
+  {
+  "runs": 0,
+    "players": [
+    {
+      "name": "Amanda the Frog",
+      "handed": "left",
+      "battingrating": 1.5,
+      "strength": 1.1,
+      "hits": 0
+    },
+    {
+      "name": "you'll get a name later",
+      "handed": "right",
+      "battingrating": 1.6,
+      "strength": 1.3,
+      "hits": 0
+    },
+    {
+      "name": "you'll get a name later",
+      "handed": "right",
+      "battingrating": 1.6,
+      "strength": 1.3,
+      "hits": 0
+    }
+    ]
   }
 ]
 
@@ -97,6 +151,8 @@ const pitcher = [
     pitchspeed: 3
   }
 ]
+
+let current_team = team1;
 
 function atBat() {
   hitType = 100;
@@ -114,14 +170,14 @@ function atBat() {
   inPlay = false;
   //sees who is the "better player"
   probability = 22;
-  if(pitcher[0].pitchingrating > team1[0].players[i].battingrating) {
+  if(pitcher[0].pitchingrating > current_team[0].players[i].battingrating) {
     probability += 5;
   }
-  if(pitcher[0].pitchingrating < team1[0].players[i].battingrating) {
+  if(pitcher[0].pitchingrating < current_team[0].players[i].battingrating) {
     probability += -1;
   }
 
-  if(pitcher[0].handed !== team1[0].players[i].handed) {
+  if(pitcher[0].handed !== current_team[0].players[i].handed) {
     probability += -1;
   } if (pitcher[0].exhaustion == 2) {
     probability += -1;
@@ -142,7 +198,7 @@ function atBat() {
   if (pitcher[0].handed == "dual") {
     probability += 5;
   }
-  if (team1[0].players[i].handed == "dual") {
+  if (current_team[0].players[i].handed == "dual") {
     probability += -2;
   }
 
@@ -177,9 +233,9 @@ function atBat() {
 
   //the ball is hit into play
   if (inPlay) {
-    if (team1[0].players[i].strength > 1 && team1[0].players[i].strength < 1.5) {
+    if (current_team[0].players[i].strength > 1 && current_team[0].players[i].strength < 1.5) {
       hitType += -4;
-    } if (team1[0].players[0].strength > 1.5) {
+    } if (current_team[0].players[0].strength > 1.5) {
       hitType += -6;
     }
 
@@ -188,7 +244,7 @@ function atBat() {
     if (randomHit <= 50) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
-        team1[0].players[i].hits += 1;
+        current_team[0].players[i].hits += 1;
         single += 1;
         nexplay = true;
         //now we move up the runners
@@ -200,7 +256,7 @@ function atBat() {
             thirdbase = true;
           } if (thirdbase) {
             thirdbase = false;
-            team1[0].runs += 1;
+            current_team[0].runs += 1;
           }
         //defines this afterwards to avoid conflicts
         firstbase = true;
@@ -214,10 +270,10 @@ function atBat() {
             thirdbase = true;
             firstbase = false;
           } if (secondbase) {
-            team1[0].runs += 1;
+            current_team[0].runs += 1;
             secondbase = false;
           } if (thirdbase) {
-            team1[0].runs += 1;
+            current_team[0].runs += 1;
             thirdbase = false;
           }
         secondbase = true;
@@ -238,7 +294,7 @@ function atBat() {
           if (thirdbase) {
             runsAdded += 1;
           }
-          team1[0].runs += runsAdded;
+          current_team[0].runs += runsAdded;
 
         // in the event it's a triple
         } if (secondary > 98 && secondary <= 100) {
@@ -259,25 +315,40 @@ function atBat() {
     }
 } 
 
+let determine = 1;
+
 for (let i = 0; i < 300; i++) {
   // console.log(out)
-  // still gotta figure out issue with 4 outs
+  // did we solve the issue with 4 outs?
   if (out >= 3) {
     firstbase = false;
     secondbase = false;
     thirdbase = false;
     out = 0;
     inning += 1;
+    if (determine = 1) {
+      determine = 2;
+      current_team = team2
+    }
+    else {
+      determine = 1;
+      current_team = team1;
+    }
   }
   if (out < 3 && inning < 9) {
     atBat()
   }
-  if (inning == 9) {
+  if (inning == 18) {
     i = 300;
   }
 }
 
+console.log(determine.length)
+
 console.log("1B: " + single, "2B: " + double, "3B: " + triple, "HR: " + homeRun, "K: " + strikeout, "BB: " + walk)
 console.log("At bats: " + atBats)
 console.log("Runs: " + team1[0].runs)
+console.log("Runs: " + team2[0].runs)
 console.log("Hit Type: " + hitType)
+
+console.log(current_team[0].players)
