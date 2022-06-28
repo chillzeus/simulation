@@ -1,4 +1,4 @@
-// 0.0.10.1
+// 0.0.10.2
 let balls = 0;
 let strikes = 0;
 
@@ -13,13 +13,6 @@ let randomHit = null;
 let secondary = null;
 let inPlay = false;
 
-//these variables are getting to be a lot
-let strikeout = 0;
-let walk = 0;
-let single = 0;
-let double = 0;
-let triple = 0;
-let homeRun = 0;
 let out = 0;
 let nextplay = false;
 let atBats = 0;
@@ -54,17 +47,24 @@ const team1 = [
         "hits": 0
     },
     {
-        "name": "Zeus the Frog",
+        "name": "Adam Fied;er",
         "handed": "left",
-        "battingrating": 1.5,
-        "strength": 0.6,
+        "battingrating": 1.4,
+        "strength": 1.8,
         "hits": 0
     },
     {
-        "name": "Michael Fazio",
+        "name": "Kristina Fiedler",
         "handed": "right",
         "battingrating": 1.7,
         "strength": 1.7,
+        "hits": 0
+    },
+    {
+        "name": "Tom Fiedler",
+        "handed": "right",
+        "battingrating": 1.7,
+        "strength": 1.6,
         "hits": 0
     },
     {
@@ -72,19 +72,26 @@ const team1 = [
         "handed": "right",
         "battingrating": 1.2,
         "strength": 1.3,
-        "hits": 0
+        "hits": 0,
     },
     {
-        "name": "Adam Fiedler",
-        "handed": "right",
-        "battingrating": 1.6,
-        "strength": 1.8,
-        "hits": 0
-    },
-    {
-        "name": "Rylan Klingle",
+        "name": "Greta Fiedler",
         "handed": "left",
-        "battingrating": 0.8,
+        "battingrating": 1.2,
+        "strength": 1.5,
+        "hits": 0
+    },
+    {
+        "name": "Jayde Doering",
+        "handed": "right",
+        "battingrating": 1.2,
+        "strength": 1.0,
+        "hits": 0
+    },
+    {
+        "name": "Mary Doering",
+        "handed": "left",
+        "battingrating": 1.3,
         "strength": 0.9,
         "hits": 0
     }
@@ -92,14 +99,14 @@ const team1 = [
     ],
     "pitchers": [ 
     {
-      "name": "Selwyn Samuel",
+      "name": "Stephen Rothe",
       "handed": "right",
       "pitchingrating": 1.6,
       "exhaustion": 1,
       "pitchspeed": 2
     },
     {
-      "name": "Mr. Hust",
+      "name": "Ellie Doering",
       "handed": "left",
       "pitchingrating": 1.4,
       "exhaustion": 1,
@@ -112,9 +119,6 @@ const team1 = [
       "exhaustion": 1,
       "pitchspeed": 2
     },
-    {
-      
-    }
     ],
   }
 ]
@@ -130,35 +134,58 @@ const team2 = [
   "walk": 0,
     "players": [
     {
-      "name": "Amanda the Frog",
-      "handed": "left",
-      "battingrating": 0,
-      "strength": 0,
-      "hits": 0
+        "name": "Ron Doering",
+        "handed": "right",
+        "battingrating": 1.4,
+        "strength": 1.3,
+        "hits": 0
     },
     {
-      "name": "you'll get a name later",
-      "handed": "right",
-      "battingrating": 0,
-      "strength": 0,
-      "hits": 0
+        "name": "Harriet Rusk",
+        "handed": "left",
+        "battingrating": 0.7,
+        "strength": 1.1,
+        "hits": 0
     },
     {
-      "name": "you'll get a name later",
-      "handed": "right",
-      "battingrating": 0,
-      "strength": 0,
-      "hits": 0
+        "name": "Kevin Rusk",
+        "handed": "right",
+        "battingrating": 1.4,
+        "strength": 1.6,
+        "hits": 0
+    },
+    {
+        "name": "Mike Doering",
+        "handed": "right",
+        "battingrating": 1.5,
+        "strength": 1.8,
+        "hits": 0
+    },
+    {
+        "name": "Monika Fiedler",
+        "handed": "right",
+        "battingrating": 1.1,
+        "strength": 1.0,
+        "hits": 0
+    },
+    {
+        /* to anyone reading this, there is a long explanation for this name
+        it's not quite as strange as it sounds */
+        "name": "Elmo Bruno",
+        "handed": "left",
+        "battingrating": 0.6,
+        "strength": 0.8,
+        "hits": 0
     }
     ],
     "pitchers": [
     {
-      "name": "named later",
+      "name": "Kathy Rothe",
       "handed": "left",
-      "pitchingrating": 1.1,
+      "pitchingrating": 1.6,
       "exhaustion": 1,
       "pitchspeed": 1
-    }
+    },
     ]
   }
 ]
@@ -370,7 +397,5 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("1B: " + single, "2B: " + double, "3B: " + triple, "HR: " + homeRun, "K: " + strikeout, "BB: " + walk)
-console.log("At bats: " + atBats)
 console.log("Team 1 Runs: " + team1[0].runs)
 console.log("Team 2 Runs: " + team2[0].runs)
