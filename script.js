@@ -31,6 +31,7 @@ const team1 = [
   "homeRun": 0,
   "strikeout": 0,
   "walk": 0,
+  "atBats": 0,
     "players": [
     {
         "name": "Soren Fiedler",
@@ -132,6 +133,7 @@ const team2 = [
   "homeRun": 0,
   "strikeout": 0,
   "walk": 0,
+  "atBats": 0,
     "players": [
     {
         "name": "Ron Doering",
@@ -169,9 +171,7 @@ const team2 = [
         "hits": 0
     },
     {
-        /* to anyone reading this, there is a long explanation for this name
-        it's not quite as strange as it sounds */
-        "name": "Elmo Bruno",
+        "name": "Alexander Doering",
         "handed": "left",
         "battingrating": 0.6,
         "strength": 0.8,
@@ -205,6 +205,7 @@ let pitch_team = team2;
 
 function atBat() {
   hitType = 100;
+  current_team[0].atBats += 1;
   if (nextplay) {
     if (i < 3) {
       nextplay = false;
@@ -219,32 +220,32 @@ function atBat() {
   inPlay = false;
   //sees who is the "better player"
   probability = 22;
-  if(pitch_team[0].pitchers[0].pitchingrating > current_team[0].players[i].battingrating) {
+  if(pitcher[0].pitchingrating > current_team[0].players[i].battingrating) {
     probability += 5;
   }
-  if(pitch_team[0].pitchers[0].pitchingrating < current_team[0].players[i].battingrating) {
+  if(pitcher[0].pitchingrating < current_team[0].players[i].battingrating) {
     probability += -1;
   }
 
-  if(pitch_team[0].pitchers[0].handed !== current_team[0].players[i].handed) {
+  if(pitcher[0].handed !== current_team[0].players[i].handed) {
     probability += -1;
-  } if (pitch_team[0].pitchers[0].exhaustion == 2) {
+  } if (pitcher[0].exhaustion == 2) {
     probability += -1;
-  } if (pitch_team[0].pitchers[0].exhaustion == 3) {
+  } if (pitcher[0].exhaustion == 3) {
     probability += -2;
   }
 
-  if (pitch_team[0].pitchers[0].pitchspeed == 1) {
+  if (pitcher[0].pitchspeed == 1) {
     probability += -1;
   }
-  if (pitch_team[0].pitchers[0].pitchspeed == 3) {
+  if (pitcher[0].pitchspeed == 3) {
     probability += 2;
   }
-  if (pitch_team[0].pitchers[0].pitchspeed == 4) {
+  if (pitcher[0].pitchspeed == 4) {
     probability += 3;
   }
 
-  if (pitch_team[0].pitchers[0].handed == "dual") {
+  if (pitcher[0].handed == "dual") {
     probability += 5;
   }
   if (current_team[0].players[i].handed == "dual") {
@@ -378,7 +379,7 @@ for (let i = 0; i < 300; i++) {
     thirdbase = false;
     out = 0;
     inning += 1;
-    if (determine = 1) {
+    if (determine == 1) {
       determine = 2;
       current_team = team2;
       pitch_team = team1;
@@ -399,3 +400,5 @@ for (let i = 0; i < 300; i++) {
 
 console.log("Team 1 Runs: " + team1[0].runs)
 console.log("Team 2 Runs: " + team2[0].runs)
+console.log(team1)
+console.log(team2)
