@@ -1,4 +1,4 @@
-// 0.0.10.2
+// 0.0.11.1
 let balls = 0;
 let strikes = 0;
 
@@ -190,16 +190,6 @@ const team2 = [
   }
 ]
 
-const pitcher = [
-  {
-    name: "Bizarro Isaac",
-    handed: "left",
-    pitchingrating: 1.4,
-    exhaustion: 1,
-    pitchspeed: 3
-  }
-]
-
 let current_team = team1;
 let pitch_team = team2;
 
@@ -220,39 +210,39 @@ function atBat() {
   inPlay = false;
   //sees who is the "better player"
   probability = 22;
-  if(pitcher[0].pitchingrating > current_team[0].players[i].battingrating) {
+  if(current_team[0].pitchers[0].pitchingrating > current_team[0].players[i].battingrating) {
     probability += 5;
   }
-  if(pitcher[0].pitchingrating < current_team[0].players[i].battingrating) {
+  if(current_team[0].pitchers[0].pitchingrating < current_team[0].players[i].battingrating) {
     probability += -1;
   }
 
-  if(pitcher[0].handed !== current_team[0].players[i].handed) {
+  if(current_team[0].pitchers[0].handed !== current_team[0].players[i].handed) {
     probability += -1;
-  } if (pitcher[0].exhaustion == 2) {
+  } if (current_team[0].pitchers[0].exhaustion == 2) {
     probability += -1;
-  } if (pitcher[0].exhaustion == 3) {
+  } if (current_team[0].pitchers[0].exhaustion == 3) {
     probability += -2;
   }
 
-  if (pitcher[0].pitchspeed == 1) {
+  if (current_team[0].pitchers[0].pitchspeed == 1) {
     probability += -1;
   }
-  if (pitcher[0].pitchspeed == 3) {
+  if (current_team[0].pitchers[0].pitchspeed == 3) {
     probability += 2;
   }
-  if (pitcher[0].pitchspeed == 4) {
+  if (current_team[0].pitchers[0].pitchspeed == 4) {
     probability += 3;
   }
 
-  if (pitcher[0].handed == "dual") {
+  if (current_team[0].pitchers[0].handed == "dual") {
     probability += 5;
   }
   if (current_team[0].players[i].handed == "dual") {
     probability += -2;
   }
 
-  // if strikes and stuff
+  // if strikes and stuff  
   while (inPlay == false) {
     randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
     if (randomNumber <= 7) {
@@ -398,7 +388,15 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
+console.log("Welcome to simulation console")
+
+console.log("=========================")
+
 console.log("Team 1 Runs: " + team1[0].runs)
+console.log("1B: " + team1[0].single + " 2B: " + team1[0].double + " 3B: " + team1[0].triple + " HR: " + team1[0].homeRun)
+console.log("Stikeouts: " + team1[0].strikeout + " Walks: " + team1[0].walk)
+
+console.log("=========================")
+
 console.log("Team 2 Runs: " + team2[0].runs)
-console.log(team1)
-console.log(team2)
+console.log("1B: " + team2[0].single + " 2B: " + team2[0].double + " 3B: " + team2[0].triple + " HR: " + team2[0].homeRun)
