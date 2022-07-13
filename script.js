@@ -1,4 +1,4 @@
-// 0.0.11.1
+// 0.0.11.2
 let balls = 0;
 let strikes = 0;
 
@@ -32,6 +32,7 @@ const team1 = [
   "strikeout": 0,
   "walk": 0,
   "atBats": 0,
+  "pitches": 0,
     "players": [
     {
         "name": "Soren Fiedler",
@@ -134,6 +135,7 @@ const team2 = [
   "strikeout": 0,
   "walk": 0,
   "atBats": 0,
+  "pitches": 0,
     "players": [
     {
         "name": "Ron Doering",
@@ -196,6 +198,7 @@ let pitch_team = team2;
 function atBat() {
   hitType = 100;
   current_team[0].atBats += 1;
+  atBats += 1;
   if (nextplay) {
     if (i < 3) {
       nextplay = false;
@@ -206,7 +209,6 @@ function atBat() {
       i = 0;
     }
   }
-  atBats += 1;
   inPlay = false;
   //sees who is the "better player"
   probability = 22;
@@ -247,12 +249,15 @@ function atBat() {
     randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
     if (randomNumber <= 7) {
       inPlay = true;
+      current_team[0].pitches += 1;
     } 
     if (randomNumber >= 8 && randomNumber <= 14) {
       balls += 1;
+      current_team[0].pitches += 1;
     }
     if (randomNumber >= 15) {
       strikes += 1;
+      current_team[0].pitches += 1;
     }
 
     //check if walk or strikeout 
@@ -388,7 +393,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("Welcome to simulation console")
+console.log("Simulation, v0.0.11.2")
 
 console.log("=========================")
 
@@ -400,3 +405,9 @@ console.log("=========================")
 
 console.log("Team 2 Runs: " + team2[0].runs)
 console.log("1B: " + team2[0].single + " 2B: " + team2[0].double + " 3B: " + team2[0].triple + " HR: " + team2[0].homeRun)
+console.log("Stikeouts: " + team2[0].strikeout + " Walks: " + team2[0].walk)
+
+console.log("=========================")
+
+console.log("Team 1 pitches: " + team1[0].pitches)
+console.log("Team 2 pitches: " + team2[0].pitches)
