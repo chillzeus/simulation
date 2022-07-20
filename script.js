@@ -1,4 +1,5 @@
 // 0.0.11.2
+
 let balls = 0;
 let strikes = 0;
 
@@ -411,3 +412,8 @@ console.log("=========================")
 
 console.log("Team 1 pitches: " + team1[0].pitches)
 console.log("Team 2 pitches: " + team2[0].pitches)
+
+
+
+
+// this section will have all the stuff to be displayed in UI

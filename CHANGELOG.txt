@@ -1,0 +1,56 @@
+
+<- CHANGELOG: ->
+
+PARTIAL RELEASE/EARLY ACCESS: 
+
+0.1.0:
+- Simulation works/has most features but issues such as:
+    - Way to few pitches per inning
+    - Doesn't cycle through pitchers
+- No user interface yet, coming soon-ish
+- Added README stuff (like changelog)
+
+
+EARLY DEVELOPMENT:
+
+0.0.11:
+- Fixed glitch where team 2 always won
+- Added more functionality to the console
+
+0.0.10:
+- The two teams now play each other
+- Added more players
+
+0.0.9:
+- Brought down runs scored to normal levels
+- Added innings
+- Organized console
+
+0.0.8:
+- Added outs, fills bases, etc
+- Probability factors
+
+0.0.7:
+- Probabilities
+- Improved stuff to test probabilities
+
+0.0.6:
+- Stuff to test out probabilities
+
+0.0.5:
+- Tweaked a few things
+
+0.0.4:
+- Does not work as intended
+- Attempted to add a different probability system
+
+0.0.3:
+- Basic probabilities
+
+0.0.2:
+- Adds bases, balls and strikes
+
+0.0.1 (includes all previous commits):
+- Created necessary files
+- Hit system
+- Started all the probabilties
