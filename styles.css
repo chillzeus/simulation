@@ -1,6 +1,23 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: White;
+    background-color: #303030;
+}
+.scoreboard {
     background-color: #212121;
-    /* background-color: #303030; */
+    width: 40%;
+    border-radius: 25px;
+    margin: 10px;
+    height: 300px;
+    align-items: center;
+}
+.score-display {
+    display: flex;
+    font-size: 72px;
+    justify-content: space-evenly;
+}
+.scoreboard-info {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-evenly;
 }

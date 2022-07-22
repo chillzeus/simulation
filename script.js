@@ -394,7 +394,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("Simulation, v0.0.11.2")
+console.log("Simulation, v0.1.1")
 
 console.log("=========================")
 
@@ -413,7 +413,11 @@ console.log("=========================")
 console.log("Team 1 pitches: " + team1[0].pitches)
 console.log("Team 2 pitches: " + team2[0].pitches)
 
-
+updateDisplay()
 
 
 // this section will have all the stuff to be displayed in UI
+
+function updateDisplay() {
+  document.getElementById(team1score).innerHTML = team1[0].runs
+}
