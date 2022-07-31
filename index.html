@@ -2,24 +2,28 @@
 <head>
     <title>Baseball Simulation</title>
     <link rel="stylesheet", href="./styles.css">
-    <script src="./script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <!--Soon this file will be used for a user interface, probably around the release-->
 
-<div class="scoreboard">
-    <div class="score-display">
-        <div class="team1score">4</div>
-        <div>-</div>
-        <div class="team2score">2</div>
+<div id="container">
+    <div id="scoreboard">
+        <p class="identifier">Score</p>
+        <div id="score-display">
+            <div id="team1score"></div>
+            <div>-</div>
+            <div id="team2score"></div>
+        </div>
+        <br />
+        <div id="scoreboard-info">
+            <div>Team 1</div>
+            <div></div>
+            <div>Team 2</div>
+        </div>
     </div>
-    <br />
-    <div class="scoreboard-info">
-        <div>Team 1</div>
-        <div></div>
-        <div>Team 2</div>
-    </div>
-    <div class="stats">
-
+    <div id="stats">
+        <p class="identifier">Statistics</p>
     </div>
 </div>
+
+<script src="./script.js"></script>

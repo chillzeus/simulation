@@ -3,7 +3,7 @@ body {
     color: White;
     background-color: #303030;
 }
-.scoreboard {
+#scoreboard {
     background-color: #212121;
     width: 40%;
     border-radius: 25px;
@@ -11,13 +11,28 @@ body {
     height: 300px;
     align-items: center;
 }
-.score-display {
+#score-display {
     display: flex;
     font-size: 72px;
     justify-content: space-evenly;
 }
-.scoreboard-info {
+#scoreboard-info {
     display: flex;
     font-size: 20px;
+    justify-content: space-evenly;
+}
+#stats {
+    width: 55%;
+    background: #212121;
+    border-radius: 25px;
+    height: 300px;
+    margin: 10px;
+}
+.identifier {
+    padding: 30px;
+}
+#container {
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
 }

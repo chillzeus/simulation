@@ -1,4 +1,4 @@
-// 0.0.11.2
+// 0.1.1.2
 
 let balls = 0;
 let strikes = 0;
@@ -394,7 +394,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("Simulation, v0.1.1")
+console.log("Simulation, v0.1.1.2")
 
 console.log("=========================")
 
@@ -413,11 +413,8 @@ console.log("=========================")
 console.log("Team 1 pitches: " + team1[0].pitches)
 console.log("Team 2 pitches: " + team2[0].pitches)
 
-updateDisplay()
-
 
 // this section will have all the stuff to be displayed in UI
 
-function updateDisplay() {
-  document.getElementById(team1score).innerHTML = team1[0].runs
-}
+document.getElementById("team1score").innerHTML = team1[0].runs;
+document.getElementById("team2score").innerHTML = team2[0].runs;
