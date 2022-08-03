@@ -1,4 +1,4 @@
-// 0.1.1.2
+// 0.1.2
 
 let balls = 0;
 let strikes = 0;
@@ -394,7 +394,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("Simulation, v0.1.1.2")
+console.log("Simulation, v0.1.2")
 
 console.log("=========================")
 
@@ -418,3 +418,17 @@ console.log("Team 2 pitches: " + team2[0].pitches)
 
 document.getElementById("team1score").innerHTML = team1[0].runs;
 document.getElementById("team2score").innerHTML = team2[0].runs;
+
+document.getElementById("team1-1b").innerHTML = team1[0].single;
+document.getElementById("team1-2b").innerHTML = team1[0].double;
+document.getElementById("team1-3b").innerHTML = team1[0].triple;
+document.getElementById("team1-hr").innerHTML = team1[0].homeRun;
+document.getElementById("team1-k").innerHTML = team1[0].strikeout;
+document.getElementById("team1-bb").innerHTML = team1[0].walk;
+
+document.getElementById("team2-1b").innerHTML = team2[0].single;
+document.getElementById("team2-2b").innerHTML = team2[0].double;
+document.getElementById("team2-3b").innerHTML = team2[0].triple;
+document.getElementById("team2-hr").innerHTML = team2[0].homeRun;
+document.getElementById("team2-k").innerHTML = team2[0].strikeout;
+document.getElementById("team2-bb").innerHTML = team2[0].walk;
