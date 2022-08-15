@@ -1,11 +1,23 @@
 
 <- CHANGELOG: ->
+(this is all kind of arbitrary up until the full release, there's no logic to this versioning)
+(basically it just lets me keep track of the progress of this project and stuff)
 
 PARTIAL RELEASE/EARLY ACCESS: 
 
+0.1.2: 
+- More UI stuff like:
+    - Player rosters with their individual stats
+- Implemented more in-depth hit/strikeout/walk stats for each individual player
+
+0.1.1:
+- Started user interface:
+    - Scoreboard
+    - Basic stats
+
 0.1.0:
 - Simulation works/has most features but issues such as:
-    - Way to few pitches per inning
+    - Way too few pitches per inning
     - Doesn't cycle through pitchers
 - No user interface yet, coming soon-ish
 - Added README stuff (like changelog)

@@ -1,4 +1,4 @@
-// 0.1.2
+// 0.1.2.1
 
 let balls = 0;
 let strikes = 0;
@@ -40,35 +40,65 @@ const team1 = [
         "handed": "right",
         "battingrating": 1.2,
         "strength": 1.4,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Isaac Fiedler",
         "handed": "right",
         "battingrating": 1.4,
         "strength": 1.5,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
-        "name": "Adam Fied;er",
+        "name": "Adam Fiedler",
         "handed": "left",
         "battingrating": 1.4,
         "strength": 1.8,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Kristina Fiedler",
         "handed": "right",
         "battingrating": 1.7,
         "strength": 1.7,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
-        "name": "Tom Fiedler",
+        "name": "Andrew Rothe",
         "handed": "right",
         "battingrating": 1.7,
         "strength": 1.6,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Sara Doering-Fiedler",
@@ -76,49 +106,59 @@ const team1 = [
         "battingrating": 1.2,
         "strength": 1.3,
         "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Greta Fiedler",
         "handed": "left",
         "battingrating": 1.2,
         "strength": 1.5,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Jayde Doering",
         "handed": "right",
         "battingrating": 1.2,
         "strength": 1.0,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Mary Doering",
         "handed": "left",
         "battingrating": 1.3,
         "strength": 0.9,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     }
 
     ],
     "pitchers": [ 
     {
-      "name": "Stephen Rothe",
+      "name": "Rosemary Fiedler",
       "handed": "right",
       "pitchingrating": 1.6,
-      "exhaustion": 1,
-      "pitchspeed": 2
-    },
-    {
-      "name": "Ellie Doering",
-      "handed": "left",
-      "pitchingrating": 1.4,
-      "exhaustion": 1,
-      "pitchspeed": 4
-    },
-    {
-      "name": "Rosemary Fiedler",
-      "handed": "dual",
-      "pitchingrating": 1.2,
       "exhaustion": 1,
       "pitchspeed": 2
     },
@@ -143,47 +183,122 @@ const team2 = [
         "handed": "right",
         "battingrating": 1.4,
         "strength": 1.3,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Harriet Rusk",
         "handed": "left",
         "battingrating": 0.7,
         "strength": 1.1,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Kevin Rusk",
         "handed": "right",
         "battingrating": 1.4,
         "strength": 1.6,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Mike Doering",
         "handed": "right",
         "battingrating": 1.5,
         "strength": 1.8,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Monika Fiedler",
         "handed": "right",
         "battingrating": 1.1,
         "strength": 1.0,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     },
     {
         "name": "Alexander Doering",
         "handed": "left",
         "battingrating": 0.6,
         "strength": 0.8,
-        "hits": 0
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
+    },
+    {
+        "name": "Ellie Doering",
+        "handed": "right",
+        "battingrating": 1.2,
+        "strength": 0.9,
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
+    },
+    {
+        "name": "Chipotle the Fish",
+        "handed": "left",
+        "battingrating": 1.5,
+        "strength": 0.2,
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
+    },   
+    {
+        "name": "Kathy Rothe",
+        "handed": "right",
+        "battingrating": 1.0,
+        "strength": 1.0,
+        "hits": 0,
+        "single": 0,
+        "double": 0,
+        "triple": 0,
+        "homerun": 0,
+        "strikeout": 0,
+        "walk": 0
     }
     ],
     "pitchers": [
     {
-      "name": "Kathy Rothe",
+      "name": "Tom Fiedler",
       "handed": "left",
       "pitchingrating": 1.6,
       "exhaustion": 1,
@@ -201,11 +316,11 @@ function atBat() {
   current_team[0].atBats += 1;
   atBats += 1;
   if (nextplay) {
-    if (i < 3) {
+    if (i < 9) {
       nextplay = false;
       i += 1;
     }
-    if (i == 3) {
+    if (i == 9) {
       nextplay = false;
       i = 0;
     }
@@ -266,12 +381,14 @@ function atBat() {
       balls = 0;
       strikes = 0;
       current_team[0].walk += 1;
+      current_team[0].players[i].walk += 1;
       nextplay = true;
       atBat();
     } if (strikes == 3) {
       balls = 0;
       strikes = 0;
       current_team[0].strikeout += 1;
+      current_team[0].players[i].strikeout += 1;
       nextplay = true;
       out += 1;
     }
@@ -291,6 +408,7 @@ function atBat() {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
         current_team[0].players[i].hits += 1;
+        current_team[0].players[i].single += 1;
         current_team[0].single += 1;
         nexplay = true;
         //now we move up the runners
@@ -311,6 +429,7 @@ function atBat() {
         // if it's a double
         } if (secondary > 75 && secondary <= 93) {
           current_team[0].players[i].hits += 1;
+          current_team[0].players[i].double += 1;
           current_team[0].double += 1;
           nextplay = true;
           if (firstbase) {
@@ -329,6 +448,7 @@ function atBat() {
         // if it's a homerun
         } if (secondary > 93 && secondary <= 98) {
           current_team[0].players[i].hits += 1;
+          current_team[0].players[i].homerun += 1;
           current_team[0].homeRun += 1;
           nexplay = true;
           // i know there is probably a better way to write this code
@@ -348,6 +468,7 @@ function atBat() {
         } if (secondary > 98 && secondary <= 100) {
           current_team[0].triple += 1;
           current_team[0].players[i].hits += 1;
+          current_team[0].players[i].triple += 1;
           nextplay = true;
         }
       }
@@ -394,7 +515,7 @@ for (let i = 0; i < 300; i++) {
   }
 }
 
-console.log("Simulation, v0.1.2")
+console.log("Simulation, v0.1.2.1")
 
 console.log("=========================")
 
@@ -432,3 +553,34 @@ document.getElementById("team2-3b").innerHTML = team2[0].triple;
 document.getElementById("team2-hr").innerHTML = team2[0].homeRun;
 document.getElementById("team2-k").innerHTML = team2[0].strikeout;
 document.getElementById("team2-bb").innerHTML = team2[0].walk;
+
+
+// gotta say this is rather slick
+let m = -1;
+function feedPlayersTeam1() {
+  if (m == -1) {
+    console.log(1)  
+  }
+  m += 1;
+  let feedInPlayers = "<tr><th class='player-name'>" + team1[0].players[m].name + "</th><th>" + team1[0].players[m].hits + "</th><th>" + team1[0].players[m].single + "</td><th>" + team1[0].players[m].double + "</td><th>" + team1[0].players[m].triple + "</td><th>" + team1[0].players[m].homerun + "</td><th>" + team1[0].players[m].strikeout + "</td><th>" + team1[0].players[m].walk + "</td></tr>"
+  document.getElementById("team1-players").innerHTML += feedInPlayers;
+}
+for (let i = 0; i < 9; i++) {
+  feedPlayersTeam1()
+}
+
+
+
+// do the same for team 2
+let n = -1;
+function feedPlayersTeam2() {
+  if (n == -1) {
+    console.log(1)  
+  }
+  m += 1;
+  let feedInPlayers = "<tr><th class='player-name'>" + team2[0].players[n].name + "</th><th>" + team1[0].players[n].hits + "</th><th>" + team1[0].players[n].single + "</td><th>" + team1[0].players[n].double + "</td><th>" + team1[0].players[n].triple + "</td><th>" + team1[0].players[n].homerun + "</td><th>" + team1[0].players[n].strikeout + "</td><th>" + team1[0].players[n].walk + "</td></tr>"
+  document.getElementById("team2-players").innerHTML += feedInPlayers;
+}
+for (let i = 0; i < 9; i++) {
+  feedPlayersTeam1()
+}
