@@ -1,4 +1,4 @@
-// 0.1.2.1
+// 0.1.2.2
 
 let balls = 0;
 let strikes = 0;
@@ -46,7 +46,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Isaac Fiedler",
@@ -59,7 +60,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Adam Fiedler",
@@ -72,7 +74,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Kristina Fiedler",
@@ -85,7 +88,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Andrew Rothe",
@@ -98,7 +102,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Sara Doering-Fiedler",
@@ -111,7 +116,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Greta Fiedler",
@@ -124,7 +130,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Jayde Doering",
@@ -137,7 +144,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Mary Doering",
@@ -150,7 +158,8 @@ const team1 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     }
 
     ],
@@ -160,8 +169,17 @@ const team1 = [
       "handed": "right",
       "pitchingrating": 1.6,
       "exhaustion": 1,
+      "exhaustion-inning1": 3,
+      "exhaustion-inning2": 5,
       "pitchspeed": 2
     },
+    {
+      "name": "Zeus the Frog",
+      "handed": "left",
+      "pitchingrating": 1.5,
+      "exhaustion": 1,
+      "pitchspeed": 3
+    }
     ],
   }
 ]
@@ -189,7 +207,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Harriet Rusk",
@@ -202,7 +221,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Kevin Rusk",
@@ -215,7 +235,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Mike Doering",
@@ -228,7 +249,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Monika Fiedler",
@@ -241,7 +263,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Alexander Doering",
@@ -254,7 +277,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Ellie Doering",
@@ -267,7 +291,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },
     {
         "name": "Chipotle the Fish",
@@ -280,7 +305,8 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     },   
     {
         "name": "Kathy Rothe",
@@ -293,17 +319,27 @@ const team2 = [
         "triple": 0,
         "homerun": 0,
         "strikeout": 0,
-        "walk": 0
+        "walk": 0,
+        "RBI": 0
     }
     ],
     "pitchers": [
     {
       "name": "Tom Fiedler",
-      "handed": "left",
-      "pitchingrating": 1.6,
+      "handed": "dual",
+      "pitchingrating": 1.5,
       "exhaustion": 1,
-      "pitchspeed": 1
+      "exhaustion-inning1": 2,
+      "exhaustion-inning2": 4,
+      "pitchspeed": 2
     },
+    {
+      "name": "Stephen Rothe",
+      "handed": "right",
+      "pitchingrating": 1.4,
+      "exhaustion": 1,
+      "pitchspeed": 4
+    }
     ]
   }
 ]
@@ -340,7 +376,7 @@ function atBat() {
   } if (current_team[0].pitchers[0].exhaustion == 2) {
     probability += -1;
   } if (current_team[0].pitchers[0].exhaustion == 3) {
-    probability += -2;
+    probability += -3;
   }
 
   if (current_team[0].pitchers[0].pitchspeed == 1) {
@@ -420,6 +456,7 @@ function atBat() {
             thirdbase = true;
           } if (thirdbase) {
             thirdbase = false;
+            current_team[0].players[i].RBI += 1;
             current_team[0].runs += 1;
           }
         //defines this afterwards to avoid conflicts
@@ -436,10 +473,12 @@ function atBat() {
             thirdbase = true;
             firstbase = false;
           } if (secondbase) {
+            current_team[0].players[i].RBI += 1;
             current_team[0].runs += 1;
             secondbase = false;
           } if (thirdbase) {
             current_team[0].runs += 1;
+            current_team[0].players[i].RBI += 1;
             thirdbase = false;
           }
         secondbase = true;
@@ -463,6 +502,7 @@ function atBat() {
             runsAdded += 1;
           }
           current_team[0].runs += runsAdded;
+          current_team[0].players[i].RBI += runsAdded;
 
         // in the event it's a triple
         } if (secondary > 98 && secondary <= 100) {
@@ -487,7 +527,7 @@ function atBat() {
 
 let determine = 1;
 
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 500; i++) {
   // console.log(out)
   // did we solve the issue with 4 outs?
   if (out >= 3) {
@@ -511,11 +551,11 @@ for (let i = 0; i < 300; i++) {
     atBat()
   }
   if (inning == 18) {
-    i = 300;
+    i = 500;
   }
 }
 
-console.log("Simulation, v0.1.2.1")
+console.log("Simulation, v0.1.2.2")
 
 console.log("=========================")
 
@@ -557,30 +597,23 @@ document.getElementById("team2-bb").innerHTML = team2[0].walk;
 
 // gotta say this is rather slick
 let m = -1;
-function feedPlayersTeam1() {
-  if (m == -1) {
-    console.log(1)  
-  }
+function feedInPlayersTeam1() {
   m += 1;
   let feedInPlayers = "<tr><th class='player-name'>" + team1[0].players[m].name + "</th><th>" + team1[0].players[m].hits + "</th><th>" + team1[0].players[m].single + "</td><th>" + team1[0].players[m].double + "</td><th>" + team1[0].players[m].triple + "</td><th>" + team1[0].players[m].homerun + "</td><th>" + team1[0].players[m].strikeout + "</td><th>" + team1[0].players[m].walk + "</td></tr>"
   document.getElementById("team1-players").innerHTML += feedInPlayers;
 }
 for (let i = 0; i < 9; i++) {
-  feedPlayersTeam1()
+  feedInPlayersTeam1()
 }
 
 
-
-// do the same for team 2
-let n = -1;
-function feedPlayersTeam2() {
-  if (n == -1) {
-    console.log(1)  
-  }
-  m += 1;
-  let feedInPlayers = "<tr><th class='player-name'>" + team2[0].players[n].name + "</th><th>" + team1[0].players[n].hits + "</th><th>" + team1[0].players[n].single + "</td><th>" + team1[0].players[n].double + "</td><th>" + team1[0].players[n].triple + "</td><th>" + team1[0].players[n].homerun + "</td><th>" + team1[0].players[n].strikeout + "</td><th>" + team1[0].players[n].walk + "</td></tr>"
+// just do the same for team 2
+let n = -1
+function feedInPlayersTeam2() {
+  n += 1;
+  feedInPlayers = "<tr><th class='player-name'>" + team2[0].players[n].name + "</th><th>" + team2[0].players[n].hits + "</th><th>" + team2[0].players[n].single + "</td><th>" + team2[0].players[m].double + "</td><th>" + team2[0].players[n].triple + "</td><th>" + team2[0].players[n].homerun + "</td><th>" + team2[0].players[n].strikeout + "</td><th>" + team1[0].players[n].walk + "</td></tr>"
   document.getElementById("team2-players").innerHTML += feedInPlayers;
 }
 for (let i = 0; i < 9; i++) {
-  feedPlayersTeam1()
+  feedInPlayersTeam2()
 }

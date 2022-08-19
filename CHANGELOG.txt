@@ -8,7 +8,9 @@ PARTIAL RELEASE/EARLY ACCESS:
 0.1.2: 
 - More UI stuff like:
     - Player rosters with their individual stats
+    - Stats for the pitchers
 - Implemented more in-depth hit/strikeout/walk stats for each individual player
+- Added a relief pitcher for each team
 
 0.1.1:
 - Started user interface:
