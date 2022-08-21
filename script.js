@@ -1,4 +1,4 @@
-// 0.1.2.2
+// 0.1.2.3
 
 let balls = 0;
 let strikes = 0;
@@ -22,6 +22,7 @@ let hitType = 100;
 
 //player[i].etc USE FOR LOOP!
 let i = 0;
+let pitcher = 0;
 
 const team1 = [
   {
@@ -169,8 +170,8 @@ const team1 = [
       "handed": "right",
       "pitchingrating": 1.6,
       "exhaustion": 1,
-      "exhaustion-inning1": 3,
-      "exhaustion-inning2": 5,
+      "exhaustioninning1": 3,
+      "exhaustioninning2": 5,
       "pitchspeed": 2
     },
     {
@@ -178,6 +179,8 @@ const team1 = [
       "handed": "left",
       "pitchingrating": 1.5,
       "exhaustion": 1,
+      "exhaustioninning1": 10,
+      "exhaustion-inning2": 10,
       "pitchspeed": 3
     }
     ],
@@ -329,7 +332,7 @@ const team2 = [
       "handed": "dual",
       "pitchingrating": 1.5,
       "exhaustion": 1,
-      "exhaustion-inning1": 2,
+      "exhaustioninning1": 2,
       "exhaustion-inning2": 4,
       "pitchspeed": 2
     },
@@ -337,6 +340,8 @@ const team2 = [
       "name": "Stephen Rothe",
       "handed": "right",
       "pitchingrating": 1.4,
+      "exhaustioninning1": 10,
+      "exhaustioninning2": 10,
       "exhaustion": 1,
       "pitchspeed": 4
     }
@@ -363,33 +368,42 @@ function atBat() {
   }
   inPlay = false;
   //sees who is the "better player"
+
   probability = 22;
-  if(current_team[0].pitchers[0].pitchingrating > current_team[0].players[i].battingrating) {
+
+  if (inning >= pitch_team[0].pitchers[0].exhaustioninning1) {
+    probability += -1;
+  }
+  if (inning >= pitch_team[0].pitchers[0].exhaustioninning2) {
+    probability += -2;
+  }
+
+  if(pitch_team[0].pitchers[0].pitchingrating > current_team[0].players[i].battingrating) {
     probability += 5;
   }
-  if(current_team[0].pitchers[0].pitchingrating < current_team[0].players[i].battingrating) {
+  if(pitch_team[0].pitchers[0].pitchingrating < current_team[0].players[i].battingrating) {
     probability += -1;
   }
 
-  if(current_team[0].pitchers[0].handed !== current_team[0].players[i].handed) {
+  if(pitch_team[0].pitchers[0].handed !== current_team[0].players[i].handed) {
     probability += -1;
-  } if (current_team[0].pitchers[0].exhaustion == 2) {
+  } if (pitch_team[0].pitchers[0].exhaustion == 2) {
     probability += -1;
-  } if (current_team[0].pitchers[0].exhaustion == 3) {
+  } if (pitch_team[0].pitchers[0].exhaustion == 3) {
     probability += -3;
   }
 
-  if (current_team[0].pitchers[0].pitchspeed == 1) {
+  if (pitch_team[0].pitchers[0].pitchspeed == 1) {
     probability += -1;
   }
-  if (current_team[0].pitchers[0].pitchspeed == 3) {
+  if (pitch_team[0].pitchers[0].pitchspeed == 3) {
     probability += 2;
   }
-  if (current_team[0].pitchers[0].pitchspeed == 4) {
+  if (pitch_team[0].pitchers[0].pitchspeed == 4) {
     probability += 3;
   }
 
-  if (current_team[0].pitchers[0].handed == "dual") {
+  if (pitch_team[0].pitchers[0].handed == "dual") {
     probability += 5;
   }
   if (current_team[0].players[i].handed == "dual") {
@@ -547,6 +561,16 @@ for (let i = 0; i < 500; i++) {
       pitch_team = team2;
     }
   }
+  if (inning == current_team[0].pitchers[0].exhaustioninning1) {
+    current_team[0].pitchers[0].exhaustion = 2;
+  }
+  if (inning == current_team[0].pitchers[0].exhaustioninning2) {
+    current_team[0].pitchers[0].exhaustion = 3;
+  }
+  // switches to reliever
+  if (inning == 7) {
+    pitcher += 1;
+  }
   if (out < 3 && inning < 9) {
     atBat()
   }
@@ -555,7 +579,7 @@ for (let i = 0; i < 500; i++) {
   }
 }
 
-console.log("Simulation, v0.1.2.2")
+console.log("Simulation, v0.1.2.3")
 
 console.log("=========================")
 

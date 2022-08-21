@@ -7,6 +7,7 @@ PARTIAL RELEASE/EARLY ACCESS:
 
 0.1.2: 
 - More UI stuff like:
+- Fixed error where team would play against themselves
     - Player rosters with their individual stats
     - Stats for the pitchers
 - Implemented more in-depth hit/strikeout/walk stats for each individual player
