@@ -1,4 +1,4 @@
-// 0.1.3
+// 0.1.3.1
 
 let balls = 0;
 let strikes = 0;
@@ -22,7 +22,7 @@ let hitType = 100;
 
 //player[i].etc USE FOR LOOP!
 let i = 0;
-let pitcher = 0;
+let z = 0;
 
 const team1 = [
   {
@@ -38,6 +38,7 @@ const team1 = [
     "players": [
     {
         "name": "Soren Fiedler",
+        "rating": 5,
         "strength": 1.4,
         "hits": 0,
         "single": 0,
@@ -50,6 +51,7 @@ const team1 = [
     },
     {
         "name": "Isaac Fiedler",
+        "rating": 7,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -61,6 +63,7 @@ const team1 = [
     },
     {
         "name": "Adam Fiedler",
+        "rating": 9,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -72,6 +75,7 @@ const team1 = [
     },
     {
         "name": "Kristina Fiedler",
+        "rating": 4,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -83,6 +87,7 @@ const team1 = [
     },
     {
         "name": "Andrew Rothe",
+        "rating": 6,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -94,6 +99,7 @@ const team1 = [
     },
     {
         "name": "Sara Doering-Fiedler",
+        "rating": 4,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -105,6 +111,7 @@ const team1 = [
     },
     {
         "name": "Greta Fiedler",
+        "rating": 5,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -116,6 +123,7 @@ const team1 = [
     },
     {
         "name": "Jayde Doering",
+        "rating": 6,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -127,6 +135,7 @@ const team1 = [
     },
     {
         "name": "Mary Doering",
+        "rating": 4,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -141,23 +150,17 @@ const team1 = [
     "pitchers": [ 
     {
       "name": "Rosemary Fiedler",
-      "handed": "right",
-      "pitchingrating": 1.6,
-      "exhaustion": 1,
-      "exhaustioninning1": 3,
-      "exhaustioninning2": 5,
-      "pitchspeed": 2,
+      "rating": 4,
       "pitches": 0,
+      "strikeout": 0,
+      "walk": 0,
     },
     {
       "name": "Zeus the Frog",
-      "handed": "left",
-      "pitchingrating": 1.5,
-      "exhaustion": 1,
-      "exhaustioninning1": 10,
-      "exhaustion-inning2": 10,
-      "pitchspeed": 3,
+      "rating": 8,
       "pitches": 0,
+      "strikeout": 0,
+      "walk": 0,
     }
     ],
   }
@@ -177,6 +180,7 @@ const team2 = [
     "players": [
     {
         "name": "Ron Doering",
+        "rating": 5,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -188,6 +192,7 @@ const team2 = [
     },
     {
         "name": "Harriet Rusk",
+        "rating": 3,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -199,6 +204,7 @@ const team2 = [
     },
     {
         "name": "Kevin Rusk",
+        "rating": 6,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -210,6 +216,7 @@ const team2 = [
     },
     {
         "name": "Mike Doering",
+        "rating": 8,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -221,6 +228,7 @@ const team2 = [
     },
     {
         "name": "Monika Fiedler",
+        "rating": 7,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -232,6 +240,7 @@ const team2 = [
     },
     {
         "name": "Alexander Doering",
+        "rating": 4,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -243,6 +252,7 @@ const team2 = [
     },
     {
         "name": "Ellie Doering",
+        "rating": 5,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -254,6 +264,7 @@ const team2 = [
     },
     {
         "name": "Chipotle the Fish",
+        "rating": 3,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -265,6 +276,7 @@ const team2 = [
     },   
     {
         "name": "Kathy Rothe",
+        "rating": 7,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -278,21 +290,17 @@ const team2 = [
     "pitchers": [
     {
       "name": "Tom Fiedler",
-      "handed": "dual",
-      "pitchingrating": 1.8,
-      "exhaustion": 1,
-      "exhaustioninning1": 2,
-      "exhaustion-inning2": 4,
-      "pitchspeed": 2
+      "rating": 5,
+      "pitches": 0,
+      "strikeout": 0,
+      "walk": 0,    
     },
     {
       "name": "Stephen Rothe",
-      "handed": "right",
-      "pitchingrating": 1.8,
-      "exhaustioninning1": 10,
-      "exhaustioninning2": 10,
-      "exhaustion": 1,
-      "pitchspeed": 4
+      "rating": 7,
+      "pitches": 0,
+      "strikeout": 0,
+      "walk": 0,
     }
     ]
   }
@@ -324,14 +332,17 @@ function atBat() {
     if (randomNumber <= 5) {
       inPlay = true;
       pitch_team[0].pitches += 1;
+      pitch_team[0].pitchers[z].pitches += 1;
     } 
     if (randomNumber >= 6 && randomNumber <= 11) {
       balls += 1;
       pitch_team[0].pitches += 1;
+      pitch_team[0].pitchers[z].pitches += 1;
     }
     if (randomNumber >= 14) {
       strikes += 1;
       pitch_team[0].pitches += 1;
+      pitch_team[0].pitchers[z].pitches += 1;
     }
 
     //check if walk or strikeout 
@@ -340,6 +351,7 @@ function atBat() {
       strikes = 0;
       current_team[0].walk += 1;
       current_team[0].players[i].walk += 1;
+      pitch_team[0].pitchers[z].walk += 1;
       nextplay = true;
       atBat();
     } if (strikes == 3) {
@@ -347,6 +359,7 @@ function atBat() {
       strikes = 0;
       current_team[0].strikeout += 1;
       current_team[0].players[i].strikeout += 1;
+      pitch_team[0].pitchers[z].strikeout += 1;
       nextplay = true;
       out += 1;
     }
@@ -356,7 +369,6 @@ function atBat() {
   if (inPlay) {
 
     randomHit = Math.floor(Math.random() * 100) + 1;
-    console.log(randomHit)
 
     if (randomHit <= 35) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
@@ -459,15 +471,9 @@ for (let i = 0; i < 500; i++) {
       pitch_team = team2;
     }
   }
-  if (inning == current_team[0].pitchers[0].exhaustioninning1) {
-    current_team[0].pitchers[0].exhaustion = 2;
-  }
-  if (inning == current_team[0].pitchers[0].exhaustioninning2) {
-    current_team[0].pitchers[0].exhaustion = 3;
-  }
   // switches to reliever
   if (inning == 7) {
-    pitcher += 1;
+    z = 1;
   }
   if (out < 3 && inning < 9) {
     atBat()
@@ -477,7 +483,7 @@ for (let i = 0; i < 500; i++) {
   }
 }
 
-console.log("Simulation, v0.1.3")
+console.log("Simulation, v0.1.3.1")
 
 console.log("=========================")
 

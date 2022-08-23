@@ -57,6 +57,12 @@ h5 {
     justify-content: center;
     flex-direction: row;
 }
+#container3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
 #player-roster {
     background-color: #212121;
     width: 97.2%;
@@ -120,4 +126,14 @@ table {
 th {
     padding: 5px;
     margin: 10px;
+}
+#mvp {
+    width: 30%;
+    background-color: #212121;
+    border-radius: 25px;
+}
+#pitching-stats {
+    width: 65%;
+    background-color: #212121;
+    border-radius: 25px;
 }
