@@ -5,6 +5,9 @@
 
 PARTIAL RELEASE/EARLY ACCESS: 
 
+0.1.3:
+- Simplified hitting probabilities (stuff was getting out of control)
+
 0.1.2: 
 - More UI stuff like:
 - Fixed error where team would play against themselves

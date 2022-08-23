@@ -1,4 +1,4 @@
-// 0.1.2.3
+// 0.1.3
 
 let balls = 0;
 let strikes = 0;
@@ -7,7 +7,7 @@ let firstbase = false;
 let secondbase = false;
 let thirdbase = false;
 
-let probability = 20;
+let probability = 25;
 
 let randomNumber = null;
 let randomHit = null;
@@ -38,8 +38,6 @@ const team1 = [
     "players": [
     {
         "name": "Soren Fiedler",
-        "handed": "right",
-        "battingrating": 1.2,
         "strength": 1.4,
         "hits": 0,
         "single": 0,
@@ -52,9 +50,6 @@ const team1 = [
     },
     {
         "name": "Isaac Fiedler",
-        "handed": "right",
-        "battingrating": 1.4,
-        "strength": 1.5,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -66,9 +61,6 @@ const team1 = [
     },
     {
         "name": "Adam Fiedler",
-        "handed": "left",
-        "battingrating": 1.4,
-        "strength": 1.8,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -80,9 +72,6 @@ const team1 = [
     },
     {
         "name": "Kristina Fiedler",
-        "handed": "right",
-        "battingrating": 1.7,
-        "strength": 1.7,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -94,9 +83,6 @@ const team1 = [
     },
     {
         "name": "Andrew Rothe",
-        "handed": "right",
-        "battingrating": 1.7,
-        "strength": 1.6,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -108,9 +94,6 @@ const team1 = [
     },
     {
         "name": "Sara Doering-Fiedler",
-        "handed": "right",
-        "battingrating": 1.2,
-        "strength": 1.3,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -122,9 +105,6 @@ const team1 = [
     },
     {
         "name": "Greta Fiedler",
-        "handed": "left",
-        "battingrating": 1.2,
-        "strength": 1.5,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -136,9 +116,6 @@ const team1 = [
     },
     {
         "name": "Jayde Doering",
-        "handed": "right",
-        "battingrating": 1.2,
-        "strength": 1.0,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -150,9 +127,6 @@ const team1 = [
     },
     {
         "name": "Mary Doering",
-        "handed": "left",
-        "battingrating": 1.3,
-        "strength": 0.9,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -172,7 +146,8 @@ const team1 = [
       "exhaustion": 1,
       "exhaustioninning1": 3,
       "exhaustioninning2": 5,
-      "pitchspeed": 2
+      "pitchspeed": 2,
+      "pitches": 0,
     },
     {
       "name": "Zeus the Frog",
@@ -181,7 +156,8 @@ const team1 = [
       "exhaustion": 1,
       "exhaustioninning1": 10,
       "exhaustion-inning2": 10,
-      "pitchspeed": 3
+      "pitchspeed": 3,
+      "pitches": 0,
     }
     ],
   }
@@ -201,9 +177,6 @@ const team2 = [
     "players": [
     {
         "name": "Ron Doering",
-        "handed": "right",
-        "battingrating": 1.4,
-        "strength": 1.3,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -215,9 +188,6 @@ const team2 = [
     },
     {
         "name": "Harriet Rusk",
-        "handed": "left",
-        "battingrating": 0.7,
-        "strength": 1.1,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -229,9 +199,6 @@ const team2 = [
     },
     {
         "name": "Kevin Rusk",
-        "handed": "right",
-        "battingrating": 1.4,
-        "strength": 1.6,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -243,9 +210,6 @@ const team2 = [
     },
     {
         "name": "Mike Doering",
-        "handed": "right",
-        "battingrating": 1.5,
-        "strength": 1.8,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -257,9 +221,6 @@ const team2 = [
     },
     {
         "name": "Monika Fiedler",
-        "handed": "right",
-        "battingrating": 1.1,
-        "strength": 1.0,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -271,9 +232,6 @@ const team2 = [
     },
     {
         "name": "Alexander Doering",
-        "handed": "left",
-        "battingrating": 0.6,
-        "strength": 0.8,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -285,9 +243,6 @@ const team2 = [
     },
     {
         "name": "Ellie Doering",
-        "handed": "right",
-        "battingrating": 1.2,
-        "strength": 0.9,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -299,9 +254,6 @@ const team2 = [
     },
     {
         "name": "Chipotle the Fish",
-        "handed": "left",
-        "battingrating": 1.5,
-        "strength": 0.2,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -313,9 +265,6 @@ const team2 = [
     },   
     {
         "name": "Kathy Rothe",
-        "handed": "right",
-        "battingrating": 1.0,
-        "strength": 1.0,
         "hits": 0,
         "single": 0,
         "double": 0,
@@ -330,7 +279,7 @@ const team2 = [
     {
       "name": "Tom Fiedler",
       "handed": "dual",
-      "pitchingrating": 1.5,
+      "pitchingrating": 1.8,
       "exhaustion": 1,
       "exhaustioninning1": 2,
       "exhaustion-inning2": 4,
@@ -339,7 +288,7 @@ const team2 = [
     {
       "name": "Stephen Rothe",
       "handed": "right",
-      "pitchingrating": 1.4,
+      "pitchingrating": 1.8,
       "exhaustioninning1": 10,
       "exhaustioninning2": 10,
       "exhaustion": 1,
@@ -367,63 +316,22 @@ function atBat() {
     }
   }
   inPlay = false;
-  //sees who is the "better player"
 
-  probability = 22;
-
-  if (inning >= pitch_team[0].pitchers[0].exhaustioninning1) {
-    probability += -1;
-  }
-  if (inning >= pitch_team[0].pitchers[0].exhaustioninning2) {
-    probability += -2;
-  }
-
-  if(pitch_team[0].pitchers[0].pitchingrating > current_team[0].players[i].battingrating) {
-    probability += 5;
-  }
-  if(pitch_team[0].pitchers[0].pitchingrating < current_team[0].players[i].battingrating) {
-    probability += -1;
-  }
-
-  if(pitch_team[0].pitchers[0].handed !== current_team[0].players[i].handed) {
-    probability += -1;
-  } if (pitch_team[0].pitchers[0].exhaustion == 2) {
-    probability += -1;
-  } if (pitch_team[0].pitchers[0].exhaustion == 3) {
-    probability += -3;
-  }
-
-  if (pitch_team[0].pitchers[0].pitchspeed == 1) {
-    probability += -1;
-  }
-  if (pitch_team[0].pitchers[0].pitchspeed == 3) {
-    probability += 2;
-  }
-  if (pitch_team[0].pitchers[0].pitchspeed == 4) {
-    probability += 3;
-  }
-
-  if (pitch_team[0].pitchers[0].handed == "dual") {
-    probability += 5;
-  }
-  if (current_team[0].players[i].handed == "dual") {
-    probability += -2;
-  }
-
+  // ball gets in play less, but when it gets in play, has higher chance of being a hit??
   // if strikes and stuff  
   while (inPlay == false) {
     randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
-    if (randomNumber <= 7) {
+    if (randomNumber <= 5) {
       inPlay = true;
-      current_team[0].pitches += 1;
+      pitch_team[0].pitches += 1;
     } 
-    if (randomNumber >= 8 && randomNumber <= 14) {
+    if (randomNumber >= 6 && randomNumber <= 11) {
       balls += 1;
-      current_team[0].pitches += 1;
+      pitch_team[0].pitches += 1;
     }
-    if (randomNumber >= 15) {
+    if (randomNumber >= 14) {
       strikes += 1;
-      current_team[0].pitches += 1;
+      pitch_team[0].pitches += 1;
     }
 
     //check if walk or strikeout 
@@ -446,15 +354,11 @@ function atBat() {
 
   //the ball is hit into play
   if (inPlay) {
-    if (current_team[0].players[i].strength > 1 && current_team[0].players[i].strength < 1.5) {
-      hitType += -4;
-    } if (current_team[0].players[0].strength > 1.5) {
-      hitType += -6;
-    }
 
-    randomHit = Math.trunc(Math.random() * hitType - 0) + 0;
+    randomHit = Math.floor(Math.random() * 100) + 1;
+    console.log(randomHit)
 
-    if (randomHit <= 50) {
+    if (randomHit <= 35) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
         current_team[0].players[i].hits += 1;
@@ -478,7 +382,7 @@ function atBat() {
         nexplay = true;
 
         // if it's a double
-        } if (secondary > 75 && secondary <= 93) {
+        } if (secondary > 70 && secondary <= 93) {
           current_team[0].players[i].hits += 1;
           current_team[0].players[i].double += 1;
           current_team[0].double += 1;
@@ -527,15 +431,9 @@ function atBat() {
         }
       }
     }
-    if (randomHit > 50) {
-      secondary = Math.trunc(Math.random() * hitType - 0) + 0;
-      if (secondary <= 50) {
+    if (randomHit > 65) {
         out += 1;
         nexplay = true;
-      } if (secondary > 50) {
-        out += 1;
-        nextplay = true;
-      }
     }
 } 
 
@@ -579,7 +477,7 @@ for (let i = 0; i < 500; i++) {
   }
 }
 
-console.log("Simulation, v0.1.2.3")
+console.log("Simulation, v0.1.3")
 
 console.log("=========================")
 
