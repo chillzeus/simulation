@@ -1,4 +1,4 @@
-// 0.1.3.1
+// 0.1.3.2
 
 let balls = 0;
 let strikes = 0;
@@ -329,17 +329,17 @@ function atBat() {
   // if strikes and stuff  
   while (inPlay == false) {
     randomNumber = Math.trunc(Math.random() * (probability - 0) + 0);
-    if (randomNumber <= 5) {
+    if (randomNumber <= 10) {
       inPlay = true;
       pitch_team[0].pitches += 1;
       pitch_team[0].pitchers[z].pitches += 1;
     } 
-    if (randomNumber >= 6 && randomNumber <= 11) {
+    if (randomNumber >= 11 && randomNumber <= 16) {
       balls += 1;
       pitch_team[0].pitches += 1;
       pitch_team[0].pitchers[z].pitches += 1;
     }
-    if (randomNumber >= 14) {
+    if (randomNumber >= 17) {
       strikes += 1;
       pitch_team[0].pitches += 1;
       pitch_team[0].pitchers[z].pitches += 1;
@@ -370,7 +370,7 @@ function atBat() {
 
     randomHit = Math.floor(Math.random() * 100) + 1;
 
-    if (randomHit <= 35) {
+    if (randomHit <= 20) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
       if (secondary <= 60) {
         current_team[0].players[i].hits += 1;
@@ -450,6 +450,7 @@ function atBat() {
 } 
 
 let determine = 1;
+let extraInnings = false;
 
 for (let i = 0; i < 500; i++) {
   // console.log(out)
@@ -475,15 +476,20 @@ for (let i = 0; i < 500; i++) {
   if (inning == 7) {
     z = 1;
   }
-  if (out < 3 && inning < 9) {
+  if (out < 3 && inning < 18) {
     atBat()
   }
   if (inning == 18) {
-    i = 500;
+    if (team1[0].runs == team2[0].runs) {
+      extraInnings = true;
+    }
+    else {
+      console.log("game is over")
+    }
   }
 }
 
-console.log("Simulation, v0.1.3.1")
+console.log("Simulation, v0.1.3.2")
 
 console.log("=========================")
 
