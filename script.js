@@ -1,4 +1,4 @@
-// 0.1.3.2
+// 0.1.3.3
 
 let balls = 0;
 let strikes = 0;
@@ -370,9 +370,9 @@ function atBat() {
 
     randomHit = Math.floor(Math.random() * 100) + 1;
 
-    if (randomHit <= 20) {
+    if (randomHit <= 12) {
       secondary = Math.trunc(Math.random() * 100 - 0) + 0;
-      if (secondary <= 60) {
+      if (secondary <= 65) {
         current_team[0].players[i].hits += 1;
         current_team[0].players[i].single += 1;
         current_team[0].single += 1;
@@ -394,7 +394,7 @@ function atBat() {
         nexplay = true;
 
         // if it's a double
-        } if (secondary > 70 && secondary <= 93) {
+        } if (secondary > 65 && secondary <= 85) {
           current_team[0].players[i].hits += 1;
           current_team[0].players[i].double += 1;
           current_team[0].double += 1;
@@ -415,7 +415,7 @@ function atBat() {
         nexplay = true;
 
         // if it's a homerun
-        } if (secondary > 93 && secondary <= 98) {
+        } if (secondary > 85 && secondary <= 98) {
           current_team[0].players[i].hits += 1;
           current_team[0].players[i].homerun += 1;
           current_team[0].homeRun += 1;
@@ -473,7 +473,7 @@ for (let i = 0; i < 500; i++) {
     }
   }
   // switches to reliever
-  if (inning == 7) {
+  if (inning == 14) {
     z = 1;
   }
   if (out < 3 && inning < 18) {
@@ -489,7 +489,7 @@ for (let i = 0; i < 500; i++) {
   }
 }
 
-console.log("Simulation, v0.1.3.2")
+console.log("Simulation, v0.1.3.3")
 
 console.log("=========================")
 
@@ -551,3 +551,17 @@ function feedInPlayersTeam2() {
 for (let i = 0; i < 9; i++) {
   feedInPlayersTeam2()
 }
+
+function pitchingStats() {
+  team1Pitcher1 = "<tr><th class='pitcher-name'>" + team1[0].pitchers[0].name + "</th><th>" + team1[0].pitchers[0].pitches + "</th><th>" + team1[0].pitchers[0].strikeout + "</th><th>" + team1[0].pitchers[0].walk + "</th><tr>"
+  document.getElementById("team1Pitchers").innerHTML += team1Pitcher1;
+  team1Pitcher2 = "<tr><th class='pitcher-name'>" + team1[0].pitchers[1].name + "</th><th>" + team1[0].pitchers[1].pitches + "</th><th>" + team1[0].pitchers[1].strikeout + "</th><th>" + team1[0].pitchers[1].walk + "</th><tr>"
+  document.getElementById("team1Pitchers").innerHTML += team1Pitcher2;
+  // for team 2 now
+  team2Pitcher1 = "<tr><th class='pitcher-name'>" + team2[0].pitchers[0].name + "</th><th>" + team2[0].pitchers[0].pitches + "</th><th>" + team2[0].pitchers[0].strikeout + "</th><th>" + team2[0].pitchers[0].walk + "</th><tr>"
+  document.getElementById("team2Pitchers").innerHTML += team2Pitcher1;
+  team2Pitcher2 = "<tr><th class='pitcher-name'>" + team2[0].pitchers[1].name + "</th><th>" + team2[0].pitchers[1].pitches + "</th><th>" + team2[0].pitchers[1].strikeout + "</th><th>" + team2[0].pitchers[1].walk + "</th><tr>"
+  document.getElementById("team2Pitchers").innerHTML += team2Pitcher2;
+}
+
+pitchingStats()

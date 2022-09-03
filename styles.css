@@ -13,6 +13,12 @@ h5 {
     color: grey;
     margin-left: 30px;
 }
+h2 {
+    margin-bottom: 30px;
+    margin-top: 0px;
+    padding-left: 30px;
+    font-size: 20px;
+}
 #scoreboard {
     background-color: #212121;
     width: 40%;
@@ -119,6 +125,10 @@ table {
 }
 .player-name {
     text-align: left;
+}
+.pitcher-name {
+    text-align: left;
+    margin-left: 30px;
 }
 .greyed-out-table {
     color: grey;
