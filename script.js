@@ -1,4 +1,4 @@
-// 0.1.3.3
+// 0.1.4
 
 let balls = 0;
 let strikes = 0;
@@ -450,9 +450,14 @@ function atBat() {
 } 
 
 let determine = 1;
-let extraInnings = false;
+let maxInnings = 18;
 
-for (let i = 0; i < 500; i++) {
+function extraInnings() {
+  maxInnings += 2;
+  console.log("we are in extra innings")
+}
+
+for (let i = 0; i < 1000; i++) {
   // console.log(out)
   // did we solve the issue with 4 outs?
   if (out >= 3) {
@@ -476,20 +481,17 @@ for (let i = 0; i < 500; i++) {
   if (inning == 14) {
     z = 1;
   }
-  if (out < 3 && inning < 18) {
+  if (out < 3 && inning <= maxInnings) {
     atBat()
   }
-  if (inning == 18) {
+  if (inning == maxInnings) {
     if (team1[0].runs == team2[0].runs) {
-      extraInnings = true;
-    }
-    else {
-      console.log("game is over")
+      extraInnings();
     }
   }
 }
 
-console.log("Simulation, v0.1.3.3")
+console.log("Simulation, v0.1.4")
 
 console.log("=========================")
 

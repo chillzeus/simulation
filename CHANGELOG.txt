@@ -5,12 +5,16 @@
 
 PARTIAL RELEASE/EARLY ACCESS: 
 
+0.1.4:
+- Extra innings finally implemented
+
 0.1.3:
 - Simplified hitting probabilities (stuff was getting out of control)
 - Added more UI elements
     - MVP display
     - Pitching stats
-- Changed up the player ratings (experimental)
+- Changed up the player ratings
+- Fixed error where game was 4.5 innings
 
 0.1.2: 
 - More UI stuff like:
