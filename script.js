@@ -1,4 +1,4 @@
-// 0.1.4
+// 0.1.4.1
 
 let balls = 0;
 let strikes = 0;
@@ -17,7 +17,7 @@ let inPlay = false;
 let out = 0;
 let nextplay = false;
 let atBats = 0;
-let inning = 1;
+let inning = 0;
 let hitType = 100;
 
 //player[i].etc USE FOR LOOP!
@@ -491,7 +491,7 @@ for (let i = 0; i < 1000; i++) {
   }
 }
 
-console.log("Simulation, v0.1.4")
+console.log("Simulation, v0.1.4.1")
 
 console.log("=========================")
 
@@ -565,5 +565,15 @@ function pitchingStats() {
   team2Pitcher2 = "<tr><th class='pitcher-name'>" + team2[0].pitchers[1].name + "</th><th>" + team2[0].pitchers[1].pitches + "</th><th>" + team2[0].pitchers[1].strikeout + "</th><th>" + team2[0].pitchers[1].walk + "</th><tr>"
   document.getElementById("team2Pitchers").innerHTML += team2Pitcher2;
 }
+
+let inningsReadable = 0
+
+function gameRecap(){
+  inningsReadable = inning / 2;
+  inningsReadable += -0.5;
+  document.getElementById("inningsDisplayed").innerHTML = "<h2 class='innings'>Innings: " + inningsReadable + "</h2>";
+}
+
+gameRecap()
 
 pitchingStats()

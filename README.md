@@ -10,7 +10,6 @@ Features:
 Features to come:
 - Box score that shows inning-by-innings runs
 - Project will be available to use on mydigitalspot.dev, no download required!
-- An MVP will be determined for each game
 
 Project is currently in an "early access" of sorts, but expect a finished release soon-ish. 
 
