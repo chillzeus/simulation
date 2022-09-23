@@ -1,4 +1,4 @@
-// 0.1.4.1
+// 0.1.4.2
 
 let balls = 0;
 let strikes = 0;
@@ -491,7 +491,7 @@ for (let i = 0; i < 1000; i++) {
   }
 }
 
-console.log("Simulation, v0.1.4.1")
+console.log("Simulation, v0.1.4.2")
 
 console.log("=========================")
 
@@ -566,12 +566,19 @@ function pitchingStats() {
   document.getElementById("team2Pitchers").innerHTML += team2Pitcher2;
 }
 
-let inningsReadable = 0
+let inningsReadable = 0;
+let pitchesPerInningRaw = 0;
+let pitchesPerInning = 0;
 
 function gameRecap(){
   inningsReadable = inning / 2;
   inningsReadable += -0.5;
-  document.getElementById("inningsDisplayed").innerHTML = "<h2 class='innings'>Innings: " + inningsReadable + "</h2>";
+  totalPitches = team1[0].pitches + team2[0].pitches;
+  pitchesPerInningRaw = totalPitches / inningsReadable;
+  pitchesPerInning = pitchesPerInningRaw.toFixed(1)
+  document.getElementById("inningsDisplayed").innerHTML += "<h3 class='innings'>Innings: " + inningsReadable + "</h3>";
+  document.getElementById("miscstats").innerHTML += "<p>Total pitches: " + totalPitches + "</p>"
+  document.getElementById("miscstats").innerHTML += "<p>Avg pitches per inning: " + pitchesPerInning + "</p>"
 }
 
 gameRecap()
