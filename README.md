@@ -7,11 +7,9 @@ Features:
 - Each pitch is simulated in-depth with a series of probabilities
 - Clean, organized  user interface with all kinds of stats/information
 
-Features to come:
-- Box score that shows inning-by-innings runs
-- Project will be available to use on mydigitalspot.dev, no download required!
-
 Project is currently in an "early access" of sorts, but expect a finished release soon-ish. 
+
+As soon as it is finished, it will be available at https://mydigitalspot.dev/simulation
 
 For a changelog, refer to the CHANGELOG.txt file or see the file history on Github. 
 

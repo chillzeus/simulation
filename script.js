@@ -1,4 +1,4 @@
-// 0.1.4.2
+// 0.1.4.3
 
 let balls = 0;
 let strikes = 0;
@@ -35,6 +35,7 @@ const team1 = [
   "walk": 0,
   "atBats": 0,
   "pitches": 0,
+  "hits": 0,
     "players": [
     {
         "name": "Soren Fiedler",
@@ -177,6 +178,7 @@ const team2 = [
   "walk": 0,
   "atBats": 0,
   "pitches": 0,
+  "hits": 0,
     "players": [
     {
         "name": "Ron Doering",
@@ -376,7 +378,7 @@ function atBat() {
         current_team[0].players[i].hits += 1;
         current_team[0].players[i].single += 1;
         current_team[0].single += 1;
-        nexplay = true;
+        nextplay = true;
         //now we move up the runners
           if (firstbase) {
             secondbase = true;
@@ -391,7 +393,7 @@ function atBat() {
           }
         //defines this afterwards to avoid conflicts
         firstbase = true;
-        nexplay = true;
+        nextplay = true;
 
         // if it's a double
         } if (secondary > 65 && secondary <= 85) {
@@ -412,14 +414,14 @@ function atBat() {
             thirdbase = false;
           }
         secondbase = true;
-        nexplay = true;
+        nextplay = true;
 
         // if it's a homerun
         } if (secondary > 85 && secondary <= 98) {
           current_team[0].players[i].hits += 1;
           current_team[0].players[i].homerun += 1;
           current_team[0].homeRun += 1;
-          nexplay = true;
+          nextplay = true;
           // i know there is probably a better way to write this code
           let runsAdded = 1;
           if (firstbase) {
@@ -439,13 +441,27 @@ function atBat() {
           current_team[0].triple += 1;
           current_team[0].players[i].hits += 1;
           current_team[0].players[i].triple += 1;
+          thirdbase = true;
           nextplay = true;
+          if (firstbase) {
+            current_team[0].players[i].RBI += 1;
+            current_team[0].runs += 1;
+            firstbase = false;
+          } if (secondbase) {
+            current_team[0].players[i].RBI += 1;
+            current_team[0].runs += 1;
+            secondbase = false;
+          } if (thirdbase) {
+            current_team[0].runs += 1;
+            current_team[0].players[i].RBI += 1;
+            thirdbase = false;
+          }
         }
       }
     }
     if (randomHit > 65) {
         out += 1;
-        nexplay = true;
+        nextplay = true;
     }
 } 
 
@@ -491,7 +507,14 @@ for (let i = 0; i < 1000; i++) {
   }
 }
 
-console.log("Simulation, v0.1.4.2")
+function addUpHits() {
+  team1[0].hits = team1[0].single + team1[0].double + team1[0].triple + team1[0].homeRun;
+  team2[0].hits = team2[0].single + team2[0].double + team2[0].triple + team2[0].homeRun;
+}
+
+addUpHits()
+
+console.log("Simulation, v0.1.4.3")
 
 console.log("=========================")
 
@@ -547,7 +570,7 @@ for (let i = 0; i < 9; i++) {
 let n = -1
 function feedInPlayersTeam2() {
   n += 1;
-  feedInPlayers = "<tr><th class='player-name'>" + team2[0].players[n].name + "</th><th>" + team2[0].players[n].hits + "</th><th>" + team2[0].players[n].single + "</td><th>" + team2[0].players[m].double + "</td><th>" + team2[0].players[n].triple + "</td><th>" + team2[0].players[n].homerun + "</td><th>" + team2[0].players[n].strikeout + "</td><th>" + team1[0].players[n].walk + "</td></tr>"
+  feedInPlayers = "<tr><th class='player-name'>" + team2[0].players[n].name + "</th><th>" + team2[0].players[n].hits + "</th><th>" + team2[0].players[n].single + "</td><th>" + team2[0].players[n].double + "</td><th>" + team2[0].players[n].triple + "</td><th>" + team2[0].players[n].homerun + "</td><th>" + team2[0].players[n].strikeout + "</td><th>" + team1[0].players[n].walk + "</td></tr>"
   document.getElementById("team2-players").innerHTML += feedInPlayers;
 }
 for (let i = 0; i < 9; i++) {
@@ -567,18 +590,29 @@ function pitchingStats() {
 }
 
 let inningsReadable = 0;
-let pitchesPerInningRaw = 0;
 let pitchesPerInning = 0;
+let runsPerInning = 0;
+let hitsPerInning = 0;
 
 function gameRecap(){
   inningsReadable = inning / 2;
   inningsReadable += -0.5;
   totalPitches = team1[0].pitches + team2[0].pitches;
-  pitchesPerInningRaw = totalPitches / inningsReadable;
-  pitchesPerInning = pitchesPerInningRaw.toFixed(1)
+  pitchesPerInning = totalPitches / inningsReadable;
+  pitchesPerInning = pitchesPerInning.toFixed(1)
+  runsPerInning = team1[0].runs + team2[0].runs;
+  runsPerInning = runsPerInning / inningsReadable;
+  runsPerInning = runsPerInning.toFixed(1);
+  hitsPerInning = team1[0].hits + team2[0].hits;
+  hitsPerInning = hitsPerInning / inningsReadable;
+  hitsPerInning = hitsPerInning.toFixed(1);
   document.getElementById("inningsDisplayed").innerHTML += "<h3 class='innings'>Innings: " + inningsReadable + "</h3>";
-  document.getElementById("miscstats").innerHTML += "<p>Total pitches: " + totalPitches + "</p>"
-  document.getElementById("miscstats").innerHTML += "<p>Avg pitches per inning: " + pitchesPerInning + "</p>"
+  document.getElementById("miscstats").innerHTML += "<p>Total pitches: " + totalPitches + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p>Avg pitches per inning: " + pitchesPerInning + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p>Avg runs per inning: " + runsPerInning + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p>Team 1 hits: " + team1[0].hits + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p>Team 2 hits: " + team2[0].hits + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p>Avg hits per inning: " + hitsPerInning + "</p>";
 }
 
 gameRecap()

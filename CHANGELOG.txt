@@ -7,6 +7,8 @@ PARTIAL RELEASE/EARLY ACCESS:
 
 0.1.4:
 - Extra innings finally implemented
+- Introduces a new "In-depth statistics" section
+- Fixed minor bugs
 
 0.1.3:
 - Simplified hitting probabilities (stuff was getting out of control)
