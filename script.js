@@ -1,4 +1,4 @@
-// 1.0.0
+// 1.0.0.1
 
 let balls = 0;
 let strikes = 0;
@@ -521,7 +521,7 @@ function addUpHits() {
 
 addUpHits()
 
-console.log("Simulation, v0.1.0.0")
+console.log("Simulation, v0.1.0.0.1")
 console.log("Welcome to the simulation console!")
 
 console.log("=========================")
@@ -612,7 +612,7 @@ function gameRecap(){
   runsPerInning = runsPerInning / inningsReadable;
   runsPerInning = runsPerInning.toFixed(1);
   hitsPerInning = team1[0].hits + team2[0].hits;
-  hitsPerInning / inningsReadable;
+  hitsPerInning = hitsPerInning / inningsReadable;
   hitsPerInning.toFixed(1);
   document.getElementById("inningsDisplayed").innerHTML += "<h3 class='innings'>Innings: " + inningsReadable + "</h3>";
   document.getElementById("miscstats").innerHTML += "<p class='indepth'>Total pitches: " + totalPitches + "</p>";
