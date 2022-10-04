@@ -3,6 +3,9 @@
 (this is all kind of arbitrary up until the full release, there's no logic to this versioning)
 (basically it just lets me keep track of the progress of this project and stuff)
 
+FULL RELEASE:
+1.0.0 - Oct 4, 2022
+
 PARTIAL RELEASE/EARLY ACCESS: 
 
 0.1.4:

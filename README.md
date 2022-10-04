@@ -7,9 +7,7 @@ Features:
 - Each pitch is simulated in-depth with a series of probabilities
 - Clean, organized  user interface with all kinds of stats/information
 
-Project is currently in an "early access" of sorts, but expect a finished release soon-ish. 
-
-As soon as it is finished, it will be available at https://mydigitalspot.dev/simulation
+Finally, the project is finished! Check out 1.0.0 at: https://mydigitalspot.dev/simulation or download the file from the repo page. 
 
 For a changelog, refer to the CHANGELOG.txt file or see the file history on Github. 
 
