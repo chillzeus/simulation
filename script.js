@@ -1,4 +1,4 @@
-// 0.1.4.3
+// 1.0.0
 
 let balls = 0;
 let strikes = 0;
@@ -35,6 +35,7 @@ const team1 = [
   "walk": 0,
   "atBats": 0,
   "pitches": 0,
+  "strikes": 0,
   "hits": 0,
     "players": [
     {
@@ -153,6 +154,7 @@ const team1 = [
       "name": "Rosemary Fiedler",
       "rating": 4,
       "pitches": 0,
+      "strikes": 0,
       "strikeout": 0,
       "walk": 0,
     },
@@ -160,6 +162,7 @@ const team1 = [
       "name": "Zeus the Frog",
       "rating": 8,
       "pitches": 0,
+      "strikes": 0,
       "strikeout": 0,
       "walk": 0,
     }
@@ -178,6 +181,7 @@ const team2 = [
   "walk": 0,
   "atBats": 0,
   "pitches": 0,
+  "strikes": 0,
   "hits": 0,
     "players": [
     {
@@ -301,6 +305,7 @@ const team2 = [
       "name": "Stephen Rothe",
       "rating": 7,
       "pitches": 0,
+      "strikes": 0,
       "strikeout": 0,
       "walk": 0,
     }
@@ -343,6 +348,8 @@ function atBat() {
     }
     if (randomNumber >= 17) {
       strikes += 1;
+      pitch_team[0].strikes += 1;
+      pitch_team[0].pitchers[z].strikes += 1;
       pitch_team[0].pitches += 1;
       pitch_team[0].pitchers[z].pitches += 1;
     }
@@ -470,7 +477,7 @@ let maxInnings = 18;
 
 function extraInnings() {
   maxInnings += 2;
-  console.log("we are in extra innings")
+  console.log("Extra Innings")
 }
 
 for (let i = 0; i < 1000; i++) {
@@ -514,7 +521,8 @@ function addUpHits() {
 
 addUpHits()
 
-console.log("Simulation, v0.1.4.3")
+console.log("Simulation, v0.1.0.0")
+console.log("Welcome to the simulation console!")
 
 console.log("=========================")
 
@@ -604,17 +612,20 @@ function gameRecap(){
   runsPerInning = runsPerInning / inningsReadable;
   runsPerInning = runsPerInning.toFixed(1);
   hitsPerInning = team1[0].hits + team2[0].hits;
-  hitsPerInning = hitsPerInning / inningsReadable;
-  hitsPerInning = hitsPerInning.toFixed(1);
+  hitsPerInning / inningsReadable;
+  hitsPerInning.toFixed(1);
   document.getElementById("inningsDisplayed").innerHTML += "<h3 class='innings'>Innings: " + inningsReadable + "</h3>";
-  document.getElementById("miscstats").innerHTML += "<p>Total pitches: " + totalPitches + "</p>";
-  document.getElementById("miscstats").innerHTML += "<p>Avg pitches per inning: " + pitchesPerInning + "</p>";
-  document.getElementById("miscstats").innerHTML += "<p>Avg runs per inning: " + runsPerInning + "</p>";
-  document.getElementById("miscstats").innerHTML += "<p>Team 1 hits: " + team1[0].hits + "</p>";
-  document.getElementById("miscstats").innerHTML += "<p>Team 2 hits: " + team2[0].hits + "</p>";
-  document.getElementById("miscstats").innerHTML += "<p>Avg hits per inning: " + hitsPerInning + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Total pitches: " + totalPitches + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Avg pitches per inning: " + pitchesPerInning + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Avg runs per inning: " + runsPerInning + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Team 1 hits: " + team1[0].hits + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Team 2 hits: " + team2[0].hits + "</p>";
+  document.getElementById("miscstats").innerHTML += "<p class='indepth'>Avg hits per inning: " + hitsPerInning + "</p>";
 }
 
 gameRecap()
 
 pitchingStats()
+
+console.log(team1[0])
+console.log(team2[0])
